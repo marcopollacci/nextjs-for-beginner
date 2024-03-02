@@ -100,10 +100,10 @@ p-fragment.landing {
 }
 
 .long-list {
-  font-size: 3vh;
+  font-size: 0.5em;
 
   li {
-    margin-bottom: 3vh;
+    margin-bottom: 0.3em;
   }
 }
 
@@ -120,7 +120,7 @@ p-fragment.landing {
 .cover {
 
   h1 {
-    @include mixins.gradientText(#000, #FFF);
+    @include mixins.gradientText(#1d99fd, #FF00F7);
     font-size: 0.9em;
     text-align: center;
     margin-top: 0;
@@ -360,7 +360,7 @@ a {
 }
 
 .text-cover {
-  @include mixins.gradientText(#000, #979797);
+  @include mixins.gradientText(#1d99fd, #FF00F7);
 }
 
 .text-sub-section {
