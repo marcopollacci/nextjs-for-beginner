@@ -416,7 +416,7 @@ a {
 }
 
 .text-cover {
-  @include mixins.gradientText(#000, #fafafa);
+  @include mixins.gradientText(#000, #a0a0a0);
 }
 
 .text-sub-section {
