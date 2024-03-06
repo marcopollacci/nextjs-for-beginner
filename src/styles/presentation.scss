@@ -105,7 +105,7 @@ p-fragment.landing {
     font-family: "Graphik Medium", sans-serif;
   }
   blockquote {
-    font-size: 0.5em;
+    @include mixins.smallText;
     line-height: 1.4;
     position: relative;
     margin: 0;
@@ -134,7 +134,7 @@ p-fragment.landing {
   }
 
   cite {
-    font-size: 0.5em;
+    @include mixins.smallText;
     line-height: 3;
     text-align: left;
     margin-inline-start: 1em;
@@ -144,8 +144,12 @@ p-fragment.landing {
   }
 }
 
+.small-text {
+    @include mixins.smallText;
+}
+
 .long-list {
-  font-size: 0.5em;
+  @include mixins.smallText;
 
   li {
     margin-bottom: 0.3em;
@@ -413,6 +417,11 @@ a {
     font-size: 60%;
     margin-bottom: 0.5em;
   }
+}
+
+
+.qr {
+  filter: grayscale(90%) brightness(60%);
 }
 
 .text-cover {
