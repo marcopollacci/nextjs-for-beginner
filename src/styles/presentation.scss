@@ -99,6 +99,51 @@ p-fragment.landing {
   flex-wrap: nowrap;
 }
 
+
+.blockquote {
+  b {
+    font-family: "Graphik Medium", sans-serif;
+  }
+  blockquote {
+    font-size: 0.5em;
+    line-height: 1.4;
+    position: relative;
+    margin: 0;
+    padding: 1.2em;
+  }
+
+  blockquote:before,
+  blockquote:after {
+    position: absolute;
+    color: #959595;
+    font-size: 5em;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  blockquote:before {
+    content: '“';
+    inset-inline-start: -0.1em;
+    top: -0.3em;
+  }
+
+  blockquote:after {
+    content: '”';
+    inset-inline-end: 0;
+    bottom: 0.15em;
+  }
+
+  cite {
+    font-size: 0.5em;
+    line-height: 3;
+    text-align: left;
+    margin-inline-start: 1em;
+    a {
+      color: initial;
+    }
+  }
+}
+
 .long-list {
   font-size: 0.5em;
 
@@ -131,7 +176,7 @@ p-fragment.landing {
 .cover {
 
   h1 {
-    @include mixins.gradientText(#1d99fd, #FF00F7);
+    @include mixins.gradientText(#000, #fafafa);
     font-size: 0.9em;
     text-align: center;
     margin-top: 0;
@@ -371,9 +416,9 @@ a {
 }
 
 .text-cover {
-  @include mixins.gradientText(#1d99fd, #FF00F7);
+  @include mixins.gradientText(#000, #fafafa);
 }
 
 .text-sub-section {
-  @include mixins.gradientText(#FF00D8, #FF542F);
+  color: #484848;
 }
