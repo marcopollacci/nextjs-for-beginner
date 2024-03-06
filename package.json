@@ -1,19 +1,22 @@
 {
-  "name": "angular-signal",
+  "name": "nextjs-for-beginners",
   "version": "0.1.0",
-  "description": "Slides for a talk about signal integration in Angular.",
+  "description": "Slides for a talk about NextJS Framework for beginners",
   "type": "module",
   "scripts": {
     "build": "node build.js",
     "clean": "rimraf public",
     "start": "node serve.js",
-    "gh-pages": "npm run build && gh-pages -d public"
+    "gh-pages": "gh-pages -d public"
   },
   "keywords": [
     "presentation",
     "frontend",
-    "angular",
-    "signal"
+    "react",
+    "nextjs",
+    "slides",
+    "talk",
+    "nextjs"
   ],
   "author": {
     "name": "Marco Pollacci",

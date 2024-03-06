@@ -1,41 +1,86 @@
 <p-slide class="cover">
-    <h1>Project Structure</h1>
-</p-slide>
-<p-slide class="two-columns">
-    <p-note>
-        <h5>Project Structure</h5>
-        TODO: add content
-        <ul class="long-list">
-
-        </ul>
-    </p-note>
-    <img alt="project-structure" src="img/project-structure.png"/>
-</p-slide>
-<p-slide class="cover-subSection">
-    <h1>Routing System</h1>
-</p-slide>
-<p-slide class="two-columns">
-    <img alt="routing" src="img/routing.avif"/>
-    <p-note>
-        <h5 style="margin-bottom: 0.8em">Routing System</h5>
-        <p class="small-text">By convention, the folder organization has been structured as follows:</p>
-        <ul class="long-list" style="margin-bottom: 0.3em">
-            <li>📌 Tree: the entire routing hierarchy</li>
-            <li>📌 Subtree: each branch stemming from a root node</li>
-            <li>📌 Root: each node from which a branch originates</li>
-            <li>📌 Leaf: each node that has no more children</li>
-        </ul>
-    </p-note>
+  <h1>Project Structure</h1>
 </p-slide>
 <p-slide class="two-columns-divided-vertically">
-    <img alt="routing" src="img/routing.avif"/>
-    <p-note>
-        <p class="small-text">For example, to reach the <span class="graphik-medium">analytics</span> component, it will
-            be sufficient to follow the
-            hierarchy and it will correspond to</p>
-        <p class="small-text graphik-medium"><b>&lt;root>/dashboard/analytic</b></p>
-    </p-note>
-    <p-fragment><span class="small-text" style="position: absolute;top: 9.4em;left: 8.2em;">❶</span></p-fragment>
-    <p-fragment><span class="small-text" style="position: absolute;top: 11.9em;left: 11.5em;">❷</span></p-fragment>
-    <p-fragment><span class="small-text" style="position: absolute;top: 14.3em;left: 9.5em;">❸</span></p-fragment>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">Project Structure</h5>
+    <ul class="long-list more-margin">
+      <li>
+        <span class="graphik-medium">layout.tsx:</span> Shared UI structure
+        definition.
+      </li>
+      <li>
+        <span class="graphik-medium">page.tsx:</span> Individual page component
+        file
+      </li>
+      <li>
+        <span class="graphik-medium">global.css:</span> Global styles for the
+        entire application.
+      </li>
+      <li>
+        <span class="graphik-medium">page.module.css:</span> CSS module for
+        individual page components.
+      </li>
+      <li>
+        <span class="graphik-medium">public/:</span> Directory containing static
+        assets accessible directly by the client
+      </li>
+    </ul>
+  </p-note>
+  <img alt="project-structure" src="img/project-structure.png" />
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Routing System</h1>
+</p-slide>
+<p-slide class="two-columns">
+  <img alt="routing" src="img/routing.avif" />
+  <p-note>
+    <h5 style="margin-bottom: 0.8em">Routing System</h5>
+    <p class="small-text">
+      By convention, the folder organization has been structured as follows:
+    </p>
+    <ul class="long-list" style="margin-bottom: 0.3em">
+      <li>📌 Tree: the entire routing hierarchy</li>
+      <li>📌 Subtree: each branch stemming from a root node</li>
+      <li>📌 Root: each node from which a branch originates</li>
+      <li>📌 Leaf: each node that has no more children</li>
+    </ul>
+  </p-note>
+</p-slide>
+<p-slide class="two-columns-divided-vertically">
+  <img alt="routing" src="img/routing.avif" />
+  <p-note>
+    <p class="small-text">
+      For example, to reach the
+      <span class="graphik-medium">analytics</span> component, it will be
+      sufficient to follow the hierarchy and it will correspond to
+    </p>
+    <p class="small-text graphik-medium"><b>&lt;root>/dashboard/analytic</b></p>
+  </p-note>
+  <p-fragment
+    ><span
+      class="small-text"
+      style="position: absolute; top: 9.4em; left: 8.2em"
+      >❶</span
+    ></p-fragment
+  >
+  <p-fragment
+    ><span
+      class="small-text"
+      style="position: absolute; top: 11.9em; left: 11.5em"
+      >❷</span
+    ></p-fragment
+  >
+  <p-fragment
+    ><span
+      class="small-text"
+      style="position: absolute; top: 14.3em; left: 9.5em"
+      >❸</span
+    ></p-fragment
+  >
+  <p-notes>
+    Based on the filesystem organization, even for those approaching the
+    framework for the first time, it will be easy to understand the various
+    generated URLs
+  </p-notes>
 </p-slide>

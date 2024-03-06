@@ -1,46 +1,46 @@
-@use 'core/mixins' as mixins;
-@import 'core/typography.scss';
-@import 'core/utility.scss';
-@import 'core/scaffold.scss';
+@use "core/mixins" as mixins;
+@import "core/typography.scss";
+@import "core/utility.scss";
+@import "core/scaffold.scss";
 
 @property --sketchy-arrow-width {
-  syntax: '<length>';
+  syntax: "<length>";
   initial-value: 1px;
   inherits: true;
 }
 
 @property --sketchy-arrow-tip-spread {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 45deg;
   inherits: true;
 }
 
 @property --sketchy-arrow-tip-size {
-  syntax: '<number>';
+  syntax: "<number>";
   initial-value: 40;
   inherits: true;
 }
 
 @property --sketchy-arrow-point-approx {
-  syntax: '<number>';
+  syntax: "<number>";
   initial-value: 3;
   inherits: true;
 }
 
 @property --sketchy-arrow-count {
-  syntax: '<integer>';
+  syntax: "<integer>";
   initial-value: 3;
   inherits: true;
 }
 
 @property --sketchy-arrow-color {
-  syntax: '<color>';
+  syntax: "<color>";
   initial-value: black;
   inherits: true;
 }
 
 @property --sketchy-arrow-random-seed {
-  syntax: '<integer>';
+  syntax: "<integer>";
   initial-value: 1234;
   inherits: true;
 }
@@ -63,7 +63,7 @@ p-deck::after {
   right: 0.5em;
   font-size: 50%;
   text-align: center;
-  content: '';
+  content: "";
   color: #001236;
   z-index: 100;
 }
@@ -71,10 +71,11 @@ p-deck::after {
 p-fragment.landing {
   position: absolute;
   transform: scale(3);
-  transition: opacity var(--fragment-duration, 300ms), transform var(--fragment-duration, 300ms);
+  transition: opacity var(--fragment-duration, 300ms),
+    transform var(--fragment-duration, 300ms);
 
-  &[aria-hidden='false'],
-  p-deck[mode='speaker'] & {
+  &[aria-hidden="false"],
+  p-deck[mode="speaker"] & {
     transform: scale(1);
   }
 }
@@ -99,7 +100,6 @@ p-fragment.landing {
   flex-wrap: nowrap;
 }
 
-
 .blockquote {
   b {
     font-family: "Graphik Medium", sans-serif;
@@ -123,13 +123,13 @@ p-fragment.landing {
   }
 
   blockquote:before {
-    content: '“';
+    content: "“";
     inset-inline-start: -0.1em;
     top: -0.3em;
   }
 
   blockquote:after {
-    content: '”';
+    content: "”";
     inset-inline-end: 0;
     bottom: 0.15em;
   }
@@ -158,6 +158,10 @@ p-fragment.landing {
   }
 }
 
+.more-margin li {
+  margin-bottom: 0.6em;
+}
+
 .invert {
   &[aria-hidden="true"] {
     opacity: 1;
@@ -180,7 +184,6 @@ p-fragment.landing {
 }
 
 .cover {
-
   h1 {
     @include mixins.gradientText(#000, #fafafa);
     font-size: 1.3em;
@@ -210,7 +213,6 @@ p-fragment.landing {
     transform: translate(25%, -10%);
     opacity: 0.5;
   }
-
 }
 
 .cover-subSection {
@@ -234,7 +236,8 @@ p-fragment.landing {
 }
 
 .my-list {
-  h5, h6 {
+  h5,
+  h6 {
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -310,7 +313,7 @@ p-fragment.landing {
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     background-size: 100% 20%;
     background-position: center;
     background-repeat: no-repeat;
@@ -331,10 +334,13 @@ p-fragment.landing {
     transform: rotate(30deg);
   }
 
-  &:not(p-fragment[aria-hidden='true'] &):not(:is(p-fragment[aria-hidden='true'])) {
+  &:not(p-fragment[aria-hidden="true"] &):not(
+      :is(p-fragment[aria-hidden="true"])
+    ) {
     &::before,
     &::after {
-      animation: big-stroke calc(var(--fragment-duration, 300ms) / 2) ease-in 1 forwards;
+      animation: big-stroke calc(var(--fragment-duration, 300ms) / 2) ease-in 1
+        forwards;
     }
 
     &::after {
@@ -416,12 +422,11 @@ a {
   }
 
   caption {
-    font-family: 'Old Newspaper Types', serif;
+    font-family: "Old Newspaper Types", serif;
     font-size: 60%;
     margin-bottom: 0.5em;
   }
 }
-
 
 .qr {
   filter: grayscale(90%) brightness(60%);
