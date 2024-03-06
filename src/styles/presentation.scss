@@ -104,6 +104,7 @@ p-fragment.landing {
   b {
     font-family: "Graphik Medium", sans-serif;
   }
+
   blockquote {
     @include mixins.smallText;
     line-height: 1.4;
@@ -138,6 +139,7 @@ p-fragment.landing {
     line-height: 3;
     text-align: left;
     margin-inline-start: 1em;
+
     a {
       color: initial;
     }
@@ -145,7 +147,7 @@ p-fragment.landing {
 }
 
 .small-text {
-    @include mixins.smallText;
+  @include mixins.smallText;
 }
 
 .long-list {
@@ -181,7 +183,7 @@ p-fragment.landing {
 
   h1 {
     @include mixins.gradientText(#000, #fafafa);
-    font-size: 0.9em;
+    font-size: 1.3em;
     text-align: center;
     margin-top: 0;
   }
@@ -215,7 +217,8 @@ p-fragment.landing {
   @extend .cover;
 
   h1 {
-    @include mixins.gradientText(#FF00D8, #FF542F);
+    @include mixins.gradientText(#fafafa, #000000);
+    font-size: 0.9em;
   }
 }
 
