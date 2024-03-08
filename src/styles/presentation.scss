@@ -489,3 +489,29 @@ p-slide {
     }
   }
 }
+
+pre[data-label-file] {
+  padding: 0 0 0.5em 0;
+  margin: 0;
+  border-radius: 1em;
+  border: 1px solid #c7c6c6;
+  position: relative;
+}
+pre[data-label-file]::before {
+  content: attr(data-label-file);
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #c7c6c6;
+  padding: 0.5em 1em;
+  text-align: center;
+  color: #6f6d6d;
+  font-size: 0.7em;
+}
+
+pre[data-label-file]::after {
+  content: "🔴 🟡 🟢 ";
+  position: absolute;
+  top: 0.5em;
+  inset-inline-start: 1em;
+  font-size: 0.7em;
+}

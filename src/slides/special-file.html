@@ -49,7 +49,7 @@
     layouts preserve state, remain interactive, and do not re-render. Layouts
     can also be nested.
   </h6>
-  <pre><code class="language-javascript">
+  <pre data-label-file="layout.tsx"><code class="language-javascript">
     interface LayoutProps {
       children: React.ReactNode
     }
@@ -59,7 +59,8 @@
           {children}
           &lt;/section>
       )
-    }</code></pre>
+    }
+  </code></pre>
 </p-slide>
 <p-slide>
   <p-note>
@@ -79,19 +80,22 @@
   </p-notes>
   <pre
     class="small-line"
-  ><code class="small-text language-javascript">interface RootLayoutProps {
-  children: React.ReactNode
-}
-export default function RootLayout({children}: RootLayoutProps) {
-  return (
-    &lt;html lang="en">
-      &lt;body>
-        {/* Layout UI */}
-        &lt;main>{children}&lt;/main>
-      &lt;/body>
-    &lt;/html>
-  )
-}</code></pre>
+    data-label-file="layout.tsx"
+  ><code class="small-text language-javascript">
+    interface RootLayoutProps {
+      children: React.ReactNode
+    }
+    export default function RootLayout({children}: RootLayoutProps) {
+      return (
+        &lt;html lang="en">
+          &lt;body>
+            {/* Layout UI */}
+            &lt;main>{children}&lt;/main>
+          &lt;/body>
+        &lt;/html>
+      )
+    }
+  </code></pre>
 </p-slide>
 <p-slide
   style="--starting-point-gradient: rgb(121, 120, 120)"
@@ -173,15 +177,19 @@ export default function RootLayout({children}: RootLayoutProps) {
   </p-note>
   <pre
     class="small-line"
-  ><code class="small-text language-javascript">'use client'
-import { useSelectedLayoutSegment } from 'next/navigation'
-  
-export default function ExampleClientComponent() {
-  //Example: if we are on &lt;root>/dashboard/user
-  //the retrieved value is the string 'user'."
-  const segment = useSelectedLayoutSegment()
-  return &lt;p>Active segment: {segment}&lt;/p>
-}</code></pre>
+    data-label-file="client-component.tsx"
+  ><code class="small-text language-javascript">
+  'use client'
+  import { useSelectedLayoutSegment } from 'next/navigation'
+    
+  export default function ExampleClientComponent() {
+    //Example: if we are on &lt;root>/dashboard/user
+    //the retrieved value is the string 'user'."
+    const segment = useSelectedLayoutSegment()
+    return &lt;p>Active segment: {segment}&lt;/p>
+  }
+
+</code></pre>
 </p-slide>
 <p-slide>
   <p-note>
@@ -193,21 +201,23 @@ export default function ExampleClientComponent() {
   </p-note>
   <pre
     class="small-line"
-  ><code class="small-text language-javascript">'use client'
-import { useSelectedLayoutSegments } from 'next/navigation'
-  
-export default function ExampleClientComponent() {
-  const segments = useSelectedLayoutSegments()
-  //Example: if we are on &lt;root>/dashboard/user, 
-  //the retrieved value is the array ['dashboard', 'user']."
-  return (
-    &lt;ul>
-      {segments.map((segment, index) => (
-        &lt;li key={index}>{segment}&lt;/li>
-      ))}
-      &lt;/ul>
-  )
-}</code></pre>
+    data-label-file="client-component.tsx"
+  ><code class="small-text language-javascript">    'use client'
+    import { useSelectedLayoutSegments } from 'next/navigation'
+      
+    export default function ExampleClientComponent() {
+      const segments = useSelectedLayoutSegments()
+      //Example: if we are on &lt;root>/dashboard/user, 
+      //the retrieved value is the array ['dashboard', 'user']."
+      return (
+        &lt;ul>
+          {segments.map((segment, index) => (
+            &lt;li key={index}>{segment}&lt;/li>
+          ))}
+          &lt;/ul>
+      )
+    }
+  </code></pre>
 </p-slide>
 <p-slide class="center">
   <p-note style="margin-bottom: 1em">
@@ -227,10 +237,13 @@ export default function ExampleClientComponent() {
   <h5 style="margin-bottom: 0.7em">
     🚪 The page file is the entry point for each route
   </h5>
-  <pre><code class="language-javascript">// `app/page.tsx` is the UI for the `/` URL
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+  // `app/page.tsx` is the UI for the `/` URL
   export default function Page() {
     return <h1>Hello, Home page!</h1>
-  }</code></pre>
+  }
+
+</code></pre>
   <p-notes>
     The page file is the entry point for each route.<br />
     Without it, it's not possible to render the requested route. Each page
@@ -245,12 +258,12 @@ export default function ExampleClientComponent() {
   >
 </p-slide>
 <p-slide>
-  <pre><code class="language-javascript">
+  <pre data-label-file="page.tsx"><code class="language-javascript">
     'use client'
-    
+
     // `app/page.tsx` is the UI for the `/` URL
     export default function Page() {
-      return <h1>Hello, Home page!</h1>
+      return <h1>Hello, from the client pageeeee!</h1>
     }
   </code></pre>
 </p-slide>
