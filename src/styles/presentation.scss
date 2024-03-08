@@ -163,6 +163,13 @@ p-fragment.landing {
   @include mixins.smallText;
 }
 
+code,
+pre {
+  &.small-line {
+    line-height: 1.1em;
+  }
+}
+
 .long-list {
   @include mixins.smallText;
 

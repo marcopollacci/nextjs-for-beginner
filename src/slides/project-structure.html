@@ -167,37 +167,37 @@
 </p-slide>
 <p-slide autoplay="special-file">
   <p-fragment class="special-file" style="top: 3em; rotate: 329deg; left: 3em">
-    layout
+    layout.tsx
   </p-fragment>
   <p-fragment class="special-file" style="top: 4em; rotate: 341deg; left: 9em">
-    page
+    page.tsx
   </p-fragment>
   <p-fragment class="special-file" style="top: 2em; right: 3em; rotate: 36deg">
-    loading
+    loading.tsx
   </p-fragment>
   <p-fragment class="special-file" style="top: 8em; right: 5em; rotate: 36deg">
-    not-found
+    not-found.tsx
   </p-fragment>
   <p-fragment class="special-file" style="top: 2em; right: 8em; rotate: 36deg">
-    error
+    error.tsx
   </p-fragment>
   <p-fragment
     class="special-file"
     style="left: 3em; rotate: 332deg; bottom: 3em"
   >
-    global-error
+    global-error.tsx
   </p-fragment>
   <p-fragment
     class="special-file"
     style="top: 10em; right: 10em; rotate: 337deg"
   >
-    route
+    route.tsx
   </p-fragment>
   <p-fragment class="special-file" style="top: 6em; right: 3em; rotate: 3deg">
-    template
+    template.tsx
   </p-fragment>
-  <p-fragment class="special-file" style="top: 11em; right: 5em; rotate: 36deg">
-    default
+  <p-fragment class="special-file" style="top: 11em; right: 4em; rotate: 36deg">
+    default.tsx
   </p-fragment>
   <p-fragment no-autoplay style="z-index: 1"
     ><img
@@ -206,4 +206,45 @@
       alt="special-files-omg"
       style="height: 90%; top: 0.5em; bottom: 0.5em"
   /></p-fragment>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>layout.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <h6 style="margin-bottom: 0">
+    A layout is UI that is shared between multiple routes. On navigation,
+    layouts preserve state, remain interactive, and do not re-render. Layouts
+    can also be nested.
+  </h6>
+  <pre><code class="language-javascript">
+    interface LayoutProps {
+      children: React.ReactNode
+    }
+    export default function DashboardLayout({children}: LayoutProps) {
+      return (
+        &lt;section>
+          {children}
+          &lt;/section>
+      )
+    }</code></pre>
+</p-slide>
+<p-slide class="center">
+  <h6 style="margin-bottom: .2em">
+    <span class="graphik-medium">The Root layout</span> is defined at the top level of the app directory and applies
+    to all routes. This layout is required and must contain html and body tags,
+    allowing you to modify the initial HTML returned from the server.
+  </h6>
+  <pre class="small-line"><code class="small-line small-text language-javascript">interface RootLayoutProps {
+  children: React.ReactNode
+}
+export default function RootLayout({children}: RootLayoutProps) {
+  return (
+    &lt;html lang="en">
+      &lt;body>
+        {/* Layout UI */}
+        &lt;main>{children}</main>
+      &lt;/body>
+    &lt;/html>
+  )
+}</code></pre>
 </p-slide>
