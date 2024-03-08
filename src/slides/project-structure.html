@@ -210,9 +210,9 @@
 <p-slide class="cover-subSection">
   <h1>layout.tsx</h1>
 </p-slide>
-<p-slide class="center">
+<p-slide>
   <h6 style="margin-bottom: 0">
-    A layout is UI that is shared between multiple routes. On navigation,
+    A layout is UI that is shared between multiple routes. <br />On navigation,
     layouts preserve state, remain interactive, and do not re-render. Layouts
     can also be nested.
   </h6>
@@ -228,13 +228,25 @@
       )
     }</code></pre>
 </p-slide>
-<p-slide class="center">
-  <h6 style="margin-bottom: .2em">
-    <span class="graphik-medium">The Root layout</span> is defined at the top level of the app directory and applies
-    to all routes. This layout is required and must contain html and body tags,
-    allowing you to modify the initial HTML returned from the server.
-  </h6>
-  <pre class="small-line"><code class="small-line small-text language-javascript">interface RootLayoutProps {
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">The Root layout</h5>
+    <p class="small-text">
+      <span class="graphik-medium">The Root layout</span> is defined at the top
+      level of the app directory and applies to all routes.
+    </p>
+  </p-note>
+  <p-notes>
+    <p>
+      This layout is required and must contain html and body tags, allowing you
+      to modify the initial HTML returned from the server.
+    </p>
+    <p>api SEO nextJS</p>
+    <p>server component by default and cannot turn in client component</p>
+  </p-notes>
+  <pre
+    class="small-line"
+  ><code class="small-text language-javascript">interface RootLayoutProps {
   children: React.ReactNode
 }
 export default function RootLayout({children}: RootLayoutProps) {
@@ -242,9 +254,125 @@ export default function RootLayout({children}: RootLayoutProps) {
     &lt;html lang="en">
       &lt;body>
         {/* Layout UI */}
-        &lt;main>{children}</main>
+        &lt;main>{children}&lt;/main>
       &lt;/body>
     &lt;/html>
+  )
+}</code></pre>
+</p-slide>
+<p-slide
+  style="--starting-point-gradient: rgb(121, 120, 120)"
+  class="center gradient-sub-section"
+>
+  <h5>Multiple Root Layouts</h5>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">Multiple Root Layouts</h5>
+    <p class="small-text">
+      To create multiple root layouts, remove the top-level layout.js file, and
+      add a layout.js file inside each route groups.
+    </p>
+  </p-note>
+  <p-notes>
+    This is useful for partitioning an application into sections that have a
+    completely different UI or experience. The &lt;html> and &lt;body> tags need
+    to be added to each root layout.
+  </p-notes>
+  <p-fragment class="center"
+    ><img
+      style="--image-start-size: 8em; margin-top: 0.5em"
+      class="alter-image-size"
+      alt="multiple-root-layouts"
+      src="img/route-group-multiple-root-layouts.avif"
+  /></p-fragment>
+</p-slide>
+<p-slide
+  style="--starting-point-gradient: rgb(121, 120, 120)"
+  class="center gradient-sub-section"
+>
+  <h5>Nesting Layouts</h5>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">Nesting Layouts</h5>
+    <p class="small-text">
+      You can nest layouts to create a hierarchy of shared UI. When a route
+      changes, the layout hierarchy is preserved, and only the necessary layouts
+      are re-rendered.
+    </p>
+  </p-note>
+  <p-fragment class="center"
+    ><img
+      style="--image-start-size: 8em; margin-top: 0.5em"
+      class="alter-image-size"
+      alt="nesting-layouts"
+      src="img/nested-layouts-ui.avif"
+  /></p-fragment>
+</p-slide>
+<p-slide
+  style="--starting-point-gradient: rgb(188 188 188)"
+  class="center gradient-sub-section"
+>
+  <h5>Layout: functions hooks</h5>
+</p-slide>
+<p-slide class="center">
+  <p-note
+    >By default, layouts <u>do not have access</u> to the current segment, due
+    to their nature as server components</p-note
+  >
+  <p-note style="margin-top: 0.5em">(╥﹏╥)</p-note>
+</p-slide>
+<p-slide class="center" autoplay="layout-hooks">
+  <p-note style="margin-bottom: 1em"
+    >Next.js comes with two hooks for retrieving information</p-note
+  >
+  <p-note style="font-size: 0.8em" class="two-columns graphik-medium">
+    <p-fragment>useSelectedLayoutSegment</p-fragment>
+    <p-fragment>useSelectedLayoutSegment<b>s</b></p-fragment>
+  </p-note>
+  <p-fragment style="margin-top: 1em">😎👌🔥</p-fragment>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">useSelectedLayoutSegment</h5>
+    <p class="small-text">allows retrieval of the active route segment</p>
+  </p-note>
+  <pre
+    class="small-line"
+  ><code class="small-text language-javascript">'use client'
+import { useSelectedLayoutSegment } from 'next/navigation'
+  
+export default function ExampleClientComponent() {
+  //Example: if we are on &lt;root>/dashboard/user
+  //the retrieved value is the string 'user'."
+  const segment = useSelectedLayoutSegment()
+  return &lt;p>Active segment: {segment}&lt;/p>
+}</code></pre>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">useSelectedLayoutSegments</h5>
+    <p class="small-text">
+      allows retrieval of the active route segment and all those before it in an
+      array of values
+    </p>
+  </p-note>
+  <pre
+    class="small-line"
+  ><code class="small-text language-javascript">'use client'
+import { useSelectedLayoutSegments } from 'next/navigation'
+  
+export default function ExampleClientComponent() {
+  const segments = useSelectedLayoutSegments()
+  //Example: if we are on &lt;root>/dashboard/user, 
+  //the retrieved value is the array ['dashboard', 'user']."
+  return (
+    &lt;ul>
+      {segments.map((segment, index) => (
+        &lt;li key={index}>{segment}&lt;/li>
+      ))}
+      &lt;/ul>
   )
 }</code></pre>
 </p-slide>

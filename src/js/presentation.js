@@ -26,7 +26,7 @@ export function listenGroupFragment(nameFragment) {
     });
 }
 
-export function listenSlideAutoplay(nameSlide) {
+export function listenSlideAutoplay(nameSlide, timing = 100) {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       const isVisibile =
@@ -42,7 +42,7 @@ export function listenSlideAutoplay(nameSlide) {
             () => {
               el.setAttribute("aria-hidden", "false");
             },
-            2000 + 100 * index
+            2000 + timing * index
           );
         }
       });
@@ -59,3 +59,4 @@ export function listenSlideAutoplay(nameSlide) {
 
 listenGroupFragment("project-structure");
 listenSlideAutoplay("special-file");
+listenSlideAutoplay("layout-hooks", 450);

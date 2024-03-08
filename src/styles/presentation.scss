@@ -163,6 +163,12 @@ p-fragment.landing {
   @include mixins.smallText;
 }
 
+.alter-image-size {
+  --image-start-size: 100%;
+  height: var(--image-start-size);
+  width: fit-content;
+}
+
 code,
 pre {
   &.small-line {
@@ -246,7 +252,9 @@ pre {
 
 .gradient-sub-section {
   --starting-point-gradient: #fafafa;
-  @include mixins.gradientText(var(--starting-point-gradient), #000000);
+  h5 {
+    @include mixins.gradientText(var(--starting-point-gradient), #000000);
+  }
 }
 
 .my-presentation {
