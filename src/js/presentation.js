@@ -26,4 +26,36 @@ export function listenGroupFragment(nameFragment) {
     });
 }
 
+export function listenSlideAutoplay(nameSlide) {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      const isVisibile =
+        mutation.target.getAttribute("aria-hidden") === "false";
+      if (!isVisibile) return;
+      const elements = document.querySelectorAll(
+        `[autoplay="${nameSlide}"] p-fragment:not([no-autoplay])`
+      );
+      elements.forEach((el, index) => {
+        const ariaHidden = el.getAttribute("aria-hidden");
+        if (ariaHidden === "true") {
+          setTimeout(
+            () => {
+              el.setAttribute("aria-hidden", "false");
+            },
+            2000 + 100 * index
+          );
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll(`[autoplay="${nameSlide}"]`).forEach((el) => {
+    observer.observe(el, {
+      attributes: true,
+      attributeFilter: ["aria-hidden"],
+    });
+  });
+}
+
 listenGroupFragment("project-structure");
+listenSlideAutoplay("special-file");

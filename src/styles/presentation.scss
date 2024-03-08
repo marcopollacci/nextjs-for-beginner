@@ -237,6 +237,11 @@ p-fragment.landing {
   }
 }
 
+.gradient-sub-section {
+  --starting-point-gradient: #fafafa;
+  @include mixins.gradientText(var(--starting-point-gradient), #000000);
+}
+
 .my-presentation {
   display: flex;
   flex-direction: column;
@@ -453,13 +458,19 @@ a {
   color: #484848;
 }
 
+.special-file {
+  border-radius: 1em;
+  border: 1px solid blue;
+  padding: 0.1em 0.6em;
+  width: fit-content;
+  position: absolute;
+}
+
 p-slide {
-  // p-fragment {
   .group-fragment[aria-hidden="false"] {
     display: none;
     &:last-child {
       display: inherit;
     }
   }
-  // }
 }
