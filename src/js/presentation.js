@@ -4,7 +4,7 @@ export function listenGroupFragment(nameFragment) {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach(() => {
       const elements = document.querySelectorAll(
-        '[group-fragment="project-structure"]'
+        `[group-fragment="${nameFragment}"]`
       );
       elements.forEach((el, index, nodeList) => {
         const ariaHidden = el.getAttribute("aria-hidden");
