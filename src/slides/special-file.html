@@ -182,9 +182,7 @@
   <p-note>⏳</p-note>
 </p-slide>
 <p-slide>
-  <p-note style="margin-top: 0.5em; margin-bottom: 1em">
-    It encapsulates the <span class="graphik-medium">page.tsx</span> file and its respective children with the native React Suspense tag.
-  </p-note>
+  <p-note class="mid-dimension"> It encapsulates the <span class="graphik-medium">page.tsx</span> file and its respective children with the native React Suspense tag. </p-note>
   <img class="alter-image-size" src="img/loading-overview.avif" alt="loading-overview" />
 </p-slide>
 <p-slide>
@@ -223,7 +221,40 @@
 </p-slide>
 <p-slide class="center">
   <p-note>🫵 Good to know 🫵</p-note>
-  <p-fragment style="margin-top: 1em; font-size: 0.7em">
-    In addition to catching expected notFound() errors, the root app/not-found.js file also handles any unmatched URLs for your whole application.</p-fragment
+  <p-fragment class="mid-dimension">
+    In addition to catching expected notFound() errors, the root app/not-found.tsx file also handles any unmatched URLs for your whole application.</p-fragment
   >
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>error.tsx / global-error.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension">The error file allows rendering a courtesy page to handle any type of error that may occur during the rendering of a component.</p-note>
+  <p-note>🚨</p-note>
+</p-slide>
+<p-slide>
+  <p-note class="mid-dimension">The framework uses React ErrorBoundary to catch the error, encapsulating the page file inside it.</p-note>
+  <img class="alter-image-size" src="img/error-overview.avif" alt="loading-overview" />
+</p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension"> Through the reset prop, it's possible to request the framework to attempt to reload the component, triggering a new render of it.</p-note>
+  <p-fragment class="mid-dimension">
+    It's important to remember that a component's error bubbles up through all parent routes until it finds an error component that intercepts them."
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <pre data-label-file="error.tsx"><code class="language-javascript">
+    'use client' // Error components must be Client Components
+    export default function Error({ error, reset}: {
+      error: Error & { digest?: string }
+      reset: () => void
+    }) {
+      return (
+        &lt;div>
+          &lt;h2>Something went wrong!&lt;/h2>
+          &lt;button onClick={() => reset()}>Try again&lt;/button>
+        &lt;/div>
+      )
+    }
+  </code></pre>
 </p-slide>
