@@ -1,46 +1,46 @@
-@use "core/mixins" as mixins;
-@import "core/typography.scss";
-@import "core/utility.scss";
-@import "core/scaffold.scss";
+@use 'core/mixins' as mixins;
+@import 'core/typography.scss';
+@import 'core/utility.scss';
+@import 'core/scaffold.scss';
 
 @property --sketchy-arrow-width {
-  syntax: "<length>";
+  syntax: '<length>';
   initial-value: 1px;
   inherits: true;
 }
 
 @property --sketchy-arrow-tip-spread {
-  syntax: "<angle>";
+  syntax: '<angle>';
   initial-value: 45deg;
   inherits: true;
 }
 
 @property --sketchy-arrow-tip-size {
-  syntax: "<number>";
+  syntax: '<number>';
   initial-value: 40;
   inherits: true;
 }
 
 @property --sketchy-arrow-point-approx {
-  syntax: "<number>";
+  syntax: '<number>';
   initial-value: 3;
   inherits: true;
 }
 
 @property --sketchy-arrow-count {
-  syntax: "<integer>";
+  syntax: '<integer>';
   initial-value: 3;
   inherits: true;
 }
 
 @property --sketchy-arrow-color {
-  syntax: "<color>";
+  syntax: '<color>';
   initial-value: black;
   inherits: true;
 }
 
 @property --sketchy-arrow-random-seed {
-  syntax: "<integer>";
+  syntax: '<integer>';
   initial-value: 1234;
   inherits: true;
 }
@@ -66,7 +66,7 @@ p-deck::after {
   right: 0.5em;
   font-size: 50%;
   text-align: center;
-  content: "";
+  content: '';
   color: #001236;
   z-index: 100;
 }
@@ -78,8 +78,8 @@ p-fragment.landing {
     opacity var(--fragment-duration, 300ms),
     transform var(--fragment-duration, 300ms);
 
-  &[aria-hidden="false"],
-  p-deck[mode="speaker"] & {
+  &[aria-hidden='false'],
+  p-deck[mode='speaker'] & {
     transform: scale(1);
   }
 }
@@ -115,7 +115,7 @@ p-fragment.landing {
 
 .blockquote {
   b {
-    font-family: "Graphik Medium", sans-serif;
+    font-family: 'Graphik Medium', sans-serif;
   }
 
   blockquote {
@@ -136,13 +136,13 @@ p-fragment.landing {
   }
 
   blockquote:before {
-    content: "“";
+    content: '“';
     inset-inline-start: -0.1em;
     top: -0.3em;
   }
 
   blockquote:after {
-    content: "”";
+    content: '”';
     inset-inline-end: 0;
     bottom: 0.15em;
   }
@@ -164,7 +164,7 @@ p-fragment.landing {
 }
 
 .alter-image-size {
-  --image-start-size: 100%;
+  --image-start-size: 8em;
   height: var(--image-start-size);
   width: fit-content;
 }
@@ -189,11 +189,11 @@ pre {
 }
 
 .invert {
-  &[aria-hidden="true"] {
+  &[aria-hidden='true'] {
     opacity: 1;
   }
 
-  &[aria-hidden="false"] {
+  &[aria-hidden='false'] {
     opacity: 0;
   }
 }
@@ -346,7 +346,7 @@ pre {
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     background-size: 100% 20%;
     background-position: center;
     background-repeat: no-repeat;
@@ -367,13 +367,10 @@ pre {
     transform: rotate(30deg);
   }
 
-  &:not(p-fragment[aria-hidden="true"] &):not(
-      :is(p-fragment[aria-hidden="true"])
-    ) {
+  &:not(p-fragment[aria-hidden='true'] &):not(:is(p-fragment[aria-hidden='true'])) {
     &::before,
     &::after {
-      animation: big-stroke calc(var(--fragment-duration, 300ms) / 2) ease-in 1
-        forwards;
+      animation: big-stroke calc(var(--fragment-duration, 300ms) / 2) ease-in 1 forwards;
     }
 
     &::after {
@@ -455,7 +452,7 @@ a {
   }
 
   caption {
-    font-family: "Old Newspaper Types", serif;
+    font-family: 'Old Newspaper Types', serif;
     font-size: 60%;
     margin-bottom: 0.5em;
   }
@@ -482,7 +479,7 @@ a {
 }
 
 p-slide {
-  .group-fragment[aria-hidden="false"] {
+  .group-fragment[aria-hidden='false'] {
     display: none;
     &:last-child {
       display: inherit;
@@ -509,9 +506,18 @@ pre[data-label-file]::before {
 }
 
 pre[data-label-file]::after {
-  content: "🔴 🟡 🟢 ";
+  content: '🔴 🟡 🟢 ';
   position: absolute;
   top: 0.5em;
   inset-inline-start: 1em;
   font-size: 0.7em;
+}
+
+.attention {
+  font-weight: bold;
+  &:before,
+  &:after {
+    color: #f00;
+    content: '⚠️ ';
+  }
 }

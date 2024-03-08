@@ -1,53 +1,21 @@
 <p-slide autoplay="special-file">
-  <p-fragment class="special-file" style="top: 3em; rotate: 329deg; left: 3em">
-    layout.tsx
-  </p-fragment>
-  <p-fragment class="special-file" style="top: 4em; rotate: 341deg; left: 9em">
-    page.tsx
-  </p-fragment>
-  <p-fragment class="special-file" style="top: 2em; right: 3em; rotate: 36deg">
-    loading.tsx
-  </p-fragment>
-  <p-fragment class="special-file" style="top: 8em; right: 5em; rotate: 36deg">
-    not-found.tsx
-  </p-fragment>
-  <p-fragment class="special-file" style="top: 2em; right: 8em; rotate: 36deg">
-    error.tsx
-  </p-fragment>
-  <p-fragment
-    class="special-file"
-    style="left: 3em; rotate: 332deg; bottom: 3em"
-  >
-    global-error.tsx
-  </p-fragment>
-  <p-fragment
-    class="special-file"
-    style="top: 10em; right: 10em; rotate: 337deg"
-  >
-    route.tsx
-  </p-fragment>
-  <p-fragment class="special-file" style="top: 6em; right: 3em; rotate: 3deg">
-    template.tsx
-  </p-fragment>
-  <p-fragment class="special-file" style="top: 11em; right: 4em; rotate: 36deg">
-    default.tsx
-  </p-fragment>
-  <p-fragment no-autoplay style="z-index: 1"
-    ><img
-      class="full-media"
-      src="img/cry-sad.gif"
-      alt="special-files-omg"
-      style="height: 90%; top: 0.5em; bottom: 0.5em"
-  /></p-fragment>
+  <p-fragment class="special-file" style="top: 3em; rotate: 329deg; left: 3em"> layout.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 4em; rotate: 341deg; left: 9em"> page.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 2em; right: 3em; rotate: 36deg"> loading.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 8em; right: 5em; rotate: 36deg"> not-found.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 2em; right: 8em; rotate: 36deg"> error.tsx </p-fragment>
+  <p-fragment class="special-file" style="left: 3em; rotate: 332deg; bottom: 3em"> global-error.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 10em; right: 10em; rotate: 337deg"> route.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 6em; right: 3em; rotate: 3deg"> template.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 11em; right: 4em; rotate: 36deg"> default.tsx </p-fragment>
+  <p-fragment no-autoplay style="z-index: 1"><img class="full-media" src="img/cry-sad.gif" alt="special-files-omg" style="height: 90%; top: 0.5em; bottom: 0.5em" /></p-fragment>
 </p-slide>
 <p-slide class="cover-subSection">
   <h1>layout.tsx</h1>
 </p-slide>
 <p-slide>
-  <h6 style="margin-bottom: 0">
-    A layout is UI that is shared between multiple routes. <br />On navigation,
-    layouts preserve state, remain interactive, and do not re-render. Layouts
-    can also be nested.
+  <h6 style="margin-bottom: 0.6em">
+    A layout is UI that is shared between multiple routes. <br />On navigation, layouts preserve state, remain interactive, and do not re-render. Layouts can also be nested.
   </h6>
   <pre data-label-file="layout.tsx"><code class="language-javascript">
     interface LayoutProps {
@@ -65,23 +33,14 @@
 <p-slide>
   <p-note>
     <h5 style="margin-bottom: 0.7em">The Root layout</h5>
-    <p class="small-text">
-      <span class="graphik-medium">The Root layout</span> is defined at the top
-      level of the app directory and applies to all routes.
-    </p>
+    <p class="small-text"><span class="graphik-medium">The Root layout</span> is defined at the top level of the app directory and applies to all routes.</p>
   </p-note>
   <p-notes>
-    <p>
-      This layout is required and must contain html and body tags, allowing you
-      to modify the initial HTML returned from the server.
-    </p>
+    <p>This layout is required and must contain html and body tags, allowing you to modify the initial HTML returned from the server.</p>
     <p>api SEO nextJS</p>
     <p>server component by default and cannot turn in client component</p>
   </p-notes>
-  <pre
-    class="small-line"
-    data-label-file="layout.tsx"
-  ><code class="small-text language-javascript">
+  <pre class="small-line" data-label-file="layout.tsx"><code class="small-text language-javascript">
     interface RootLayoutProps {
       children: React.ReactNode
     }
@@ -97,73 +56,41 @@
     }
   </code></pre>
 </p-slide>
-<p-slide
-  style="--starting-point-gradient: rgb(121, 120, 120)"
-  class="center gradient-sub-section"
->
+<p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
   <h5>Multiple Root Layouts</h5>
 </p-slide>
 <p-slide>
   <p-note>
     <h5 style="margin-bottom: 0.7em">Multiple Root Layouts</h5>
-    <p class="small-text">
-      To create multiple root layouts, remove the top-level layout.js file, and
-      add a layout.js file inside each route groups.
-    </p>
+    <p class="small-text">To create multiple root layouts, remove the top-level layout.js file, and add a layout.js file inside each route groups.</p>
   </p-note>
   <p-notes>
-    This is useful for partitioning an application into sections that have a
-    completely different UI or experience. The &lt;html> and &lt;body> tags need
-    to be added to each root layout.
+    This is useful for partitioning an application into sections that have a completely different UI or experience. The &lt;html> and &lt;body> tags need to be added to each root
+    layout.
   </p-notes>
-  <p-fragment class="center"
-    ><img
-      style="--image-start-size: 8em; margin-top: 0.5em"
-      class="alter-image-size"
-      alt="multiple-root-layouts"
-      src="img/route-group-multiple-root-layouts.avif"
-  /></p-fragment>
+  <p-fragment class="center"><img style="margin-top: 0.5em" class="alter-image-size" alt="multiple-root-layouts" src="img/route-group-multiple-root-layouts.avif" /></p-fragment>
 </p-slide>
-<p-slide
-  style="--starting-point-gradient: rgb(121, 120, 120)"
-  class="center gradient-sub-section"
->
+<p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
   <h5>Nesting Layouts</h5>
 </p-slide>
 <p-slide>
   <p-note>
     <h5 style="margin-bottom: 0.7em">Nesting Layouts</h5>
     <p class="small-text">
-      You can nest layouts to create a hierarchy of shared UI. When a route
-      changes, the layout hierarchy is preserved, and only the necessary layouts
-      are re-rendered.
+      You can nest layouts to create a hierarchy of shared UI. When a route changes, the layout hierarchy is preserved, and only the necessary layouts are re-rendered.
     </p>
   </p-note>
-  <p-fragment class="center"
-    ><img
-      style="--image-start-size: 8em; margin-top: 0.5em"
-      class="alter-image-size"
-      alt="nesting-layouts"
-      src="img/nested-layouts-ui.avif"
-  /></p-fragment>
+  <p-fragment class="center"><img style="margin-top: 0.5em" class="alter-image-size" alt="nesting-layouts" src="img/nested-layouts-ui.avif" /></p-fragment>
 </p-slide>
-<p-slide
-  style="--starting-point-gradient: rgb(188 188 188)"
-  class="center gradient-sub-section"
->
+<p-slide style="--starting-point-gradient: rgb(188 188 188)" class="center gradient-sub-section">
   <h5>Layout: functions hooks</h5>
 </p-slide>
 <p-slide class="center">
-  <p-note
-    >By default, layouts <u>do not have access</u> to the current segment, due
-    to their nature as server components</p-note
-  >
-  <p-note style="margin-top: 0.5em">(╥﹏╥)</p-note>
+  <p-note>By default, layouts <u>do not have access</u> to the current segment, due to their nature as server components</p-note>
+  <p-fragment style="margin-top: 0.5em">(╥﹏╥)</p-fragment>
 </p-slide>
 <p-slide class="center" autoplay="layout-hooks">
-  <p-note style="margin-bottom: 1em"
-    >Next.js comes with two hooks for retrieving information</p-note
-  >
+  <p-note style="margin-bottom: 1em">Next.js comes with two hooks for retrieving information</p-note>
   <p-note style="font-size: 0.8em" class="two-columns graphik-medium">
     <p-fragment>useSelectedLayoutSegment</p-fragment>
     <p-fragment>useSelectedLayoutSegment<b>s</b></p-fragment>
@@ -172,13 +99,10 @@
 </p-slide>
 <p-slide>
   <p-note>
-    <h5 style="margin-bottom: 0.7em">useSelectedLayoutSegment</h5>
-    <p class="small-text">allows retrieval of the active route segment</p>
+    <h5 style="margin-bottom: 0.2em">useSelectedLayoutSegment</h5>
+    <p style="margin-bottom: 0.7em" class="small-text">allows retrieval of the active route segment</p>
   </p-note>
-  <pre
-    class="small-line"
-    data-label-file="client-component.tsx"
-  ><code class="small-text language-javascript">
+  <pre class="small-line" data-label-file="client-component.tsx"><code class="small-text language-javascript">
   'use client'
   import { useSelectedLayoutSegment } from 'next/navigation'
     
@@ -193,16 +117,10 @@
 </p-slide>
 <p-slide>
   <p-note>
-    <h5 style="margin-bottom: 0.7em">useSelectedLayoutSegments</h5>
-    <p class="small-text">
-      allows retrieval of the active route segment and all those before it in an
-      array of values
-    </p>
+    <h5 style="margin-bottom: 0.2em">useSelectedLayoutSegments</h5>
+    <p style="margin-bottom: 0.7em" class="small-text">allows retrieval of the active route segment and all those before it in an array of values</p>
   </p-note>
-  <pre
-    class="small-line"
-    data-label-file="client-component.tsx"
-  ><code class="small-text language-javascript">    'use client'
+  <pre class="small-line" data-label-file="client-component.tsx"><code class="small-text language-javascript">    'use client'
     import { useSelectedLayoutSegments } from 'next/navigation'
       
     export default function ExampleClientComponent() {
@@ -223,39 +141,28 @@
   <p-note style="margin-bottom: 1em">
     <h5>❗️All values are relative to where the hook is invoked.❗️</h5>
   </p-note>
-  <img
-    src="img/routing.png"
-    alt="routing"
-    style="--image-start-size: 8em"
-    class="alter-image-size"
-  />
+  <img src="img/routing.png" alt="routing" class="alter-image-size" />
 </p-slide>
 <p-slide class="cover-subSection">
   <h1>page.tsx</h1>
 </p-slide>
 <p-slide>
-  <h5 style="margin-bottom: 0.7em">
-    🚪 The page file is the entry point for each route
-  </h5>
+  <h5 style="margin-bottom: 0.7em">🚪 The page file is the entry point for each route</h5>
   <pre data-label-file="page.tsx"><code class="language-javascript">
   // `app/page.tsx` is the UI for the `/` URL
   export default function Page() {
-    return <h1>Hello, Home page!</h1>
+    return &lt;h1>Hello, Home page!&lt;/h1>
   }
 
 </code></pre>
   <p-notes>
     The page file is the entry point for each route.<br />
-    Without it, it's not possible to render the requested route. Each page
-    inherits the layouts and templates of that specific route.
+    Without it, it's not possible to render the requested route. Each page inherits the layouts and templates of that specific route.
   </p-notes>
 </p-slide>
 <p-slide class="center">
   <p-note>Every page is a server component by default</p-note>
-  <p-fragment style="margin-top: 1em"
-    >To become a client component you must 'use client' at the beginning of the
-    file.</p-fragment
-  >
+  <p-fragment style="margin-top: 1em">To become a client component you must add <span class="graphik-medium">'use client'</span> at the beginning of the file.</p-fragment>
 </p-slide>
 <p-slide>
   <pre data-label-file="page.tsx"><code class="language-javascript">
@@ -263,7 +170,60 @@
 
     // `app/page.tsx` is the UI for the `/` URL
     export default function Page() {
-      return <h1>Hello, from the client pageeeee!</h1>
+      return &lt;h1>Hello, from the client pageeeee!&lt;/h1>
     }
   </code></pre>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>loading.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 0.5em">The loading.tsx file is loaded by the framework when UI components are loaded and is nested within the layout. </p-note>
+  <p-note>⏳</p-note>
+</p-slide>
+<p-slide>
+  <p-note style="margin-top: 0.5em; margin-bottom: 1em">
+    It encapsulates the <span class="graphik-medium">page.tsx</span> file and its respective children with the native React Suspense tag.
+  </p-note>
+  <img class="alter-image-size" src="img/loading-overview.avif" alt="loading-overview" />
+</p-slide>
+<p-slide>
+  <pre data-label-file="loading.tsx"><code class="language-javascript">
+    export default function Loading() {
+      // You can add any UI inside Loading
+      return 'Loading...'
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>not-found.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note>The not-found file serves to provide a courtesy page if a resource not present in the routing of our application is requested</p-note>
+  <p-note>🤷‍♂️</p-note>
+</p-slide>
+<p-slide>
+  <pre data-label-file="not-found.tsx"><code class="language-javascript">
+    import Link from 'next/link'
+ 
+    export default function NotFound() {
+      return (
+        &lt;div>
+          &lt;h2>Not Found&lt;/h2>
+          &lt;p>Could not find requested resource&lt;/p>
+          &lt;Link href="/">Return Home&lt;/Link>
+        &lt/div>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 1em" class="attention"> Important </p-note>
+  <p-note>The not-found file does not accept any type of props</p-note>
+</p-slide>
+<p-slide class="center">
+  <p-note>🫵 Good to know 🫵</p-note>
+  <p-fragment style="margin-top: 1em; font-size: 0.7em">
+    In addition to catching expected notFound() errors, the root app/not-found.js file also handles any unmatched URLs for your whole application.</p-fragment
+  >
 </p-slide>

@@ -1,11 +1,14 @@
-@import "core/props.scss";
-@import "core/deck.scss";
-@import "core/nav.scss";
-@import "core/toolbar.scss";
-@import "core/progress.scss";
+@import 'core/props.scss';
+@import 'core/deck.scss';
+@import 'core/nav.scss';
+@import 'core/toolbar.scss';
+@import 'core/progress.scss';
 
 :root {
-  font-family: Graphik Regular, system-ui, sans-serif;
+  font-family:
+    Graphik Regular,
+    system-ui,
+    sans-serif;
 }
 
 :fullscreen {

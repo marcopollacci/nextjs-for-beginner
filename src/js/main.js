@@ -5,7 +5,7 @@ const deck = document.querySelector('p-deck');
 function handleHash() {
   const hash = location.hash.slice(1);
   const params = new URLSearchParams(hash);
-  const [ slideRef ] = [ ...params.keys() ];
+  const [slideRef] = [...params.keys()];
 
   const slide = getSlide(slideRef);
   const current = document.querySelector('p-slide[active]');
@@ -34,7 +34,7 @@ function getSlide(slideRef) {
 }
 
 const progressBar = document.querySelector('.presentation-progress');
-const navButtons = [ ...document.querySelectorAll('.presentation-nav button') ].reduce((map, button) => {
+const navButtons = [...document.querySelectorAll('.presentation-nav button')].reduce((map, button) => {
   map[button.className] = button;
   return map;
 }, {});
@@ -48,11 +48,11 @@ function changeHash(slide) {
   const { mode } = deck;
   location.hash = '#' + slideRef + (mode === 'presentation' ? '' : `&mode=${mode}`);
 }
-const lazyAttribs = [ 'src', 'srcset', 'href' ];
+const lazyAttribs = ['src', 'srcset', 'href'];
 const lazySelector = lazyAttribs.map(attrib => `[data-lazy-${attrib}]`).join();
 function loadLazyMedia(root) {
   for (const element of root.querySelectorAll(lazySelector)) {
-    for (const { name, value } of Object.values(element.attributes))  {
+    for (const { name, value } of Object.values(element.attributes)) {
       if (/^data-lazy-/.test(name)) {
         const realAttribute = name.slice(10);
         const realAttributeValue = element.getAttribute(realAttribute);
@@ -67,7 +67,7 @@ deck.addEventListener('p-slides.slidechange', ({ detail: { slide } }) => {
   loadLazyMedia(slide);
   changeHash(slide);
 
-  const progress = +(deck.currentIndex * 100 / (deck.slides.length - 1)).toFixed(2);
+  const progress = +((deck.currentIndex * 100) / (deck.slides.length - 1)).toFixed(2);
   progressBar.setAttribute('aria-valuenow', progress);
   progressBar.style.setProperty('--progress', progress + '%');
 

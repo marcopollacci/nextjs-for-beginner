@@ -7,96 +7,47 @@
     <ul class="long-list more-margin">
       <p-fragment>
         <li>
-          <span class="graphik-medium">layout.tsx:</span> Shared UI structure
-          definition.
+          <span class="graphik-medium">layout.tsx:</span> Shared UI structure definition.
           <p-fragment group-fragment="project-structure">
-            <span
-              style="
-                position: absolute;
-                inset-inline-end: 17.3em;
-                top: 12.3em;
-                background: transparent;
-              "
-              >👉</span
-            >
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 12.3em; background: transparent">👉</span>
           </p-fragment>
         </li>
       </p-fragment>
       <p-fragment>
         <li>
-          <span class="graphik-medium">page.tsx:</span> Individual page
-          component file
+          <span class="graphik-medium">page.tsx:</span> Individual page component file
           <p-fragment group-fragment="project-structure">
-            <span
-              style="
-                position: absolute;
-                inset-inline-end: 17.3em;
-                top: 14.3em;
-                background: transparent;
-              "
-              >👉</span
-            >
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 14.3em; background: transparent">👉</span>
           </p-fragment>
         </li>
       </p-fragment>
       <p-fragment>
         <li>
-          <span class="graphik-medium">global.css:</span> Global styles for the
-          entire application.
+          <span class="graphik-medium">global.css:</span> Global styles for the entire application.
           <p-fragment group-fragment="project-structure">
-            <span
-              style="
-                position: absolute;
-                inset-inline-end: 17.3em;
-                top: 11.2em;
-                background: transparent;
-              "
-              >👉</span
-            >
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 11.2em; background: transparent">👉</span>
           </p-fragment>
         </li>
       </p-fragment>
       <p-fragment>
         <li>
-          <span class="graphik-medium">page.module.css:</span> CSS module for
-          individual page components.
+          <span class="graphik-medium">page.module.css:</span> CSS module for individual page components.
           <p-fragment group-fragment="project-structure">
-            <span
-              style="
-                position: absolute;
-                inset-inline-end: 17.3em;
-                top: 13.3em;
-                background: transparent;
-              "
-              >👉</span
-            >
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 13.3em; background: transparent">👉</span>
           </p-fragment>
         </li>
       </p-fragment>
       <p-fragment>
         <li>
-          <span class="graphik-medium">public/:</span> Directory containing
-          static assets accessible directly by the client
+          <span class="graphik-medium">public/:</span> Directory containing static assets accessible directly by the client
           <p-fragment group-fragment="project-structure">
-            <span
-              style="
-                position: absolute;
-                inset-inline-end: 18.6em;
-                top: 7.1em;
-                background: transparent;
-              "
-              >👉</span
-            >
+            <span style="position: absolute; inset-inline-end: 18.6em; top: 7.1em; background: transparent">👉</span>
           </p-fragment>
         </li>
       </p-fragment>
     </ul>
   </p-note>
-  <img
-    style="height: 10em; width: fit-content"
-    alt="project-structure"
-    src="img/project-structure.png"
-  />
+  <img style="height: 10em; width: fit-content" alt="project-structure" src="img/project-structure.png" />
 </p-slide>
 <p-slide class="cover-subSection">
   <h1>Routing System</h1>
@@ -105,9 +56,7 @@
   <img alt="routing" src="img/routing.avif" />
   <p-note>
     <h5 style="margin-bottom: 0.8em">Routing System</h5>
-    <p class="small-text">
-      By convention, the folder organization has been structured as follows:
-    </p>
+    <p class="small-text">By convention, the folder organization has been structured as follows:</p>
     <ul class="long-list" style="margin-bottom: 0.3em">
       <li>📌 Tree: the entire routing hierarchy</li>
       <li>📌 Subtree: each branch stemming from a root node</li>
@@ -121,47 +70,18 @@
   <p-note>
     <p class="small-text">
       For example, to reach the
-      <span class="graphik-medium">analytics</span> component, it will be
-      sufficient to follow the hierarchy and it will correspond to
+      <span class="graphik-medium">analytics</span> component, it will be sufficient to follow the hierarchy and it will correspond to
     </p>
     <p class="small-text graphik-medium"><b>&lt;root>/dashboard/analytic</b></p>
   </p-note>
-  <p-fragment
-    ><span
-      class="small-text"
-      style="position: absolute; top: 9.4em; left: 8.2em"
-      >❶</span
-    ></p-fragment
-  >
-  <p-fragment
-    ><span
-      class="small-text"
-      style="position: absolute; top: 11.9em; left: 11.5em"
-      >❷</span
-    ></p-fragment
-  >
-  <p-fragment
-    ><span
-      class="small-text"
-      style="position: absolute; top: 14.3em; left: 9.5em"
-      >❸</span
-    ></p-fragment
-  >
-  <p-notes>
-    Based on the filesystem organization, even for those approaching the
-    framework for the first time, it will be easy to understand the various
-    generated URLs
-  </p-notes>
+  <p-fragment><span class="small-text" style="position: absolute; top: 9.4em; left: 8.2em">❶</span></p-fragment>
+  <p-fragment><span class="small-text" style="position: absolute; top: 11.9em; left: 11.5em">❷</span></p-fragment>
+  <p-fragment><span class="small-text" style="position: absolute; top: 14.3em; left: 9.5em">❸</span></p-fragment>
+  <p-notes> Based on the filesystem organization, even for those approaching the framework for the first time, it will be easy to understand the various generated URLs </p-notes>
 </p-slide>
-<p-slide
-  style="--starting-point-gradient: rgb(121, 120, 120)"
-  class="center gradient-sub-section"
->
+<p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
   <h5>
-    Next.js provides a set of special files to create UI with specific behavior
-    in nested routes
-    <span style="background: initial; -webkit-text-fill-color: initial"
-      >📢</span
-    >
+    Next.js provides a set of special files to create UI with specific behavior in nested routes
+    <span style="background: initial; -webkit-text-fill-color: initial">📢</span>
   </h5>
 </p-slide>

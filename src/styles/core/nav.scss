@@ -1,6 +1,6 @@
 .presentation-nav {
   position: fixed;
-  bottom: .5rem;
+  bottom: 0.5rem;
   right: 0;
   display: flex;
 
@@ -9,18 +9,18 @@
 
     &:disabled {
       cursor: default;
-      opacity: .5;
+      opacity: 0.5;
     }
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
-      top: .45em;
-      left: .45em;
-      width: .707em;
-      height: .1em;
+      top: 0.45em;
+      left: 0.45em;
+      width: 0.707em;
+      height: 0.1em;
       background: currentColor;
-      transform-origin: .05em .05em;
+      transform-origin: 0.05em 0.05em;
     }
   }
 
