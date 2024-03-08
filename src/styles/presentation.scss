@@ -165,8 +165,9 @@ p-fragment.landing {
 
 .alter-image-size {
   --image-start-size: 8em;
+  --image-width-size: fit-content;
   height: var(--image-start-size);
-  width: fit-content;
+  width: var(--image-width-size);
 }
 
 code,
@@ -518,11 +519,18 @@ pre[data-label-file]::after {
   &:before,
   &:after {
     color: #f00;
-    content: '⚠️ ';
+    content: ' ⚠️ ';
   }
+}
+
+.flex {
+  display: flex;
 }
 
 .mid-dimension {
   margin-bottom: 0.5em;
   font-size: 0.7em;
+  li {
+    margin-bottom: 0.6em;
+  }
 }
