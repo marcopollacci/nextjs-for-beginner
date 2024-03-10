@@ -271,7 +271,7 @@
   <p-fragment class="center attention" style="margin-bottom: 0.5em">Important</p-fragment>
   <p-fragment class="mid-dimension">If an unsupported method is called, Next.js will return a 405 Method Not Allowed response.</p-fragment>
 </p-slide>
-<p-slide class="center flex two-columns-divided-vertically" style="gap: 1em">
+<p-slide class="center two-columns-divided-vertically" style="gap: 1em">
   <p-fragment class="small-text">👇 In this example, a route with the path &lt;root>/api will be generated</p-fragment>
   <img src="img/route-special-file.avif" style="--image-width-size: 20em; --image-start-size: auto" alt="route-special-file" class="alter-image-size" />
   <p-note class="small-text">By convention, they are placed inside the api folder and can be positioned within any segment of the routing</p-note>
@@ -297,5 +297,38 @@
     <p-fragment><li>📌 Route Handlers are cached by default when using the GET method with the Response object.</li></p-fragment>
     <p-fragment><li>📌 Route do not participate in layouts or client-side navigations like page</li></p-fragment>
     <p-fragment><li>📌 Route cannot be a route.js file at the same route as page.js.</li></p-fragment>
+  </ul>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>template.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note> A template is similar to a layout.</p-note>
+  <p-fragment>
+    <p style="margin-top: 1em">Unlike layouts that persist across routes and maintain state, templates create a new instance for each of their children on navigation.</p>
+    <p>🖼️</p>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <pre data-label-file="template.tsx"><code class="language-javascript">
+    export default function Template({ children } {
+      return &lt;div>{children}&lt;/div>
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="center">
+  <h4>Why should I choose templates instead of layouts? 🤔</h4>
+</p-slide>
+<p-slide>
+  <ul class="mid-dimension">
+    <p-fragment><li>📌 Features that rely on useEffect (e.g logging page views) and useState (e.g a per-page feedback form).</li></p-fragment>
+    <p-fragment><li>📌 Components that need to be re-rendered on navigation.</li></p-fragment>
+    <p-fragment
+      ><li>
+        📌 To change the default framework behavior. <br />
+        For example, Suspense Boundaries inside layouts only show the fallback the first time the Layout is loaded and not when switching pages. For templates, the fallback is
+        shown on each navigation.
+      </li></p-fragment
+    >
   </ul>
 </p-slide>
