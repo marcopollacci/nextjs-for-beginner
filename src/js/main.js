@@ -97,7 +97,7 @@ function toggleDeckMode() {
 const toggleModeButton = document.querySelector('.toggle-mode');
 toggleModeButton.addEventListener('click', toggleDeckMode);
 document.addEventListener('keydown', keyEvent => {
-  if (keyEvent.key.toLowerCase() === 'm' && keyEvent.altKey) {
+  if (keyEvent.key.toLowerCase() === 'm' && keyEvent.ctrlKey) {
     toggleDeckMode();
   }
 });

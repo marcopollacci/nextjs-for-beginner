@@ -165,6 +165,7 @@
   <p-fragment style="margin-top: 1em">To become a client component you must add <span class="graphik-medium">'use client'</span> at the beginning of the file.</p-fragment>
 </p-slide>
 <p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
   <pre data-label-file="page.tsx"><code class="language-javascript">
     'use client'
 
@@ -186,6 +187,7 @@
   <img class="alter-image-size" src="img/loading-overview.avif" alt="loading-overview" />
 </p-slide>
 <p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
   <pre data-label-file="loading.tsx"><code class="language-javascript">
     export default function Loading() {
       // You can add any UI inside Loading
@@ -201,6 +203,7 @@
   <p-note>🤷‍♂️</p-note>
 </p-slide>
 <p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
   <pre data-label-file="not-found.tsx"><code class="language-javascript">
     import Link from 'next/link'
  
@@ -243,6 +246,7 @@
   </p-fragment>
 </p-slide>
 <p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
   <pre data-label-file="error.tsx"><code class="language-javascript">
     'use client' // Error components must be Client Components
     export default function Error({ error, reset}: {
@@ -277,6 +281,7 @@
   <p-note class="small-text">By convention, they are placed inside the api folder and can be positioned within any segment of the routing</p-note>
 </p-slide>
 <p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
   <pre data-label-file="route.tsx"><code class="language-javascript">
     export async function GET() {
       const res = await fetch('https://data.mongodb-api.com/...', {
@@ -310,6 +315,7 @@
   </p-fragment>
 </p-slide>
 <p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
   <pre data-label-file="template.tsx"><code class="language-javascript">
     export default function Template({ children } {
       return &lt;div>{children}&lt;/div>
@@ -321,7 +327,7 @@
 </p-slide>
 <p-slide>
   <ul class="mid-dimension">
-    <p-fragment><li>📌 Features that rely on useEffect (e.g logging page views) and useState (e.g a per-page feedback form).</li></p-fragment>
+    <li>📌 Features that rely on useEffect (e.g logging page views) and useState (e.g a per-page feedback form).</li>
     <p-fragment><li>📌 Components that need to be re-rendered on navigation.</li></p-fragment>
     <p-fragment
       ><li>
@@ -331,4 +337,38 @@
       </li></p-fragment
     >
   </ul>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>default.tsx</h1>
+</p-slide>
+<p-slide class="center more-space">
+  The default file is used to render a fallback within Parallel Routes when Next.js cannot recover a slot's active state after a full-page load.
+</p-slide>
+<p-slide class="center more-space"> But wait... what is Parallel Route? 🤔 </p-slide>
+<p-slide class="center more-space">
+  Parallel Routes allows you to simultaneously or conditionally render one or more pages within the same layout.
+  <p class="center" style="margin-top: 0.5em; font-size: 2em">🚴 🚴</p>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">⚙️ How to activate ⚙️</h4>
+  <img style="--image-start-size: 10em" src="img/parallel-routes.avif" alt="parallel-routes" class="alter-image-size" />
+  <p-notes> For example, considering a dashboard, you can use parallel routes to simultaneously render the team and analytics pages </p-notes>
+  <p-notes
+    >Parallel routes are created using named slots. Slots are defined with the @folder convention. For example, the following file structure defines two slots: @analytics and
+    @team</p-notes
+  >
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="layout.tsx"><code class="language-javascript">
+    export default function Layout({ children, team, analytics}) {
+      return (
+        &lt;>
+          {children}</code>
+          <p-fragment><code style="padding: 0; font-weight: bold;" class="language-javascript">{team}</code></p-fragment>
+          <p-fragment><code style="padding: 0; font-weight: bold;" class="language-javascript">{analytics}</code></p-fragment><code class="language-javascript">
+        &lt;/>
+      )
+    }
+  </code></pre>
 </p-slide>
