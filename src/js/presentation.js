@@ -26,7 +26,6 @@ export function listenSlideAutoplay(nameSlide, timing = 100) {
     mutations.forEach(mutation => {
       const isVisibile = mutation.target.getAttribute('aria-hidden') === 'false';
       const defaultTiming = mutation.target.getAttribute('timing') || 2000;
-      console.log('defaultTiming', defaultTiming);
       if (!isVisibile) return;
       const elements = document.querySelectorAll(`[autoplay="${nameSlide}"] p-fragment:not([no-autoplay])`);
       elements.forEach((el, index) => {
