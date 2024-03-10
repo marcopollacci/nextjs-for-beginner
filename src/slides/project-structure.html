@@ -79,9 +79,24 @@
   <p-fragment><span class="small-text" style="position: absolute; top: 14.3em; left: 9.5em">❸</span></p-fragment>
   <p-notes> Based on the filesystem organization, even for those approaching the framework for the first time, it will be easy to understand the various generated URLs </p-notes>
 </p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">Route Segments</h4>
+  <p-note class="small-text">Each folder in a route represents a route segment. Each route segment is mapped to a corresponding segment in a URL path.</p-note>
+  <p-note style="margin-top: 0.5em"><img src="img/route-segments-to-path-segments.avif" alt="route-segments" class="alter-image-size" /></p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">Colocation</h4>
+  <p-note class="small-text">
+    In addition to special files, you have the option to colocate your own files (e.g. components, styles, tests, etc) inside folders in the app directory.
+  </p-note>
+  <p-note class="center" style="margin-top: 0.5em"
+    ><img style="--image-start-size: 9em" src="img/project-organization-colocation.avif" alt="colocation" class="alter-image-size"
+  /></p-note>
+  <p-notes> This is because while folders define routes, only the contents returned by page.js or route.js are publicly addressable. </p-notes>
+</p-slide>
 <p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
   <h5>
-    Next.js provides a set of special files to create UI with specific behavior in nested routes
+    NextJS provides a set of special files to create UI with specific behavior in nested routes
     <span style="background: initial; -webkit-text-fill-color: initial">📢</span>
   </h5>
 </p-slide>

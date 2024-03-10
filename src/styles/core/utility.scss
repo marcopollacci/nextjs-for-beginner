@@ -85,6 +85,11 @@
   object-fit: contain;
 }
 
+p-deck:not([mode='speaker']) .full-media-no-padding {
+  @extend .full-media;
+  padding: 0;
+}
+
 .blink {
   animation: blink 1s steps(1) infinite;
   @media print {

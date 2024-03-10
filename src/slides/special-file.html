@@ -10,6 +10,114 @@
   <p-fragment class="special-file" style="top: 11em; right: 4em; rotate: 36deg"> default.tsx </p-fragment>
   <p-fragment no-autoplay style="z-index: 1"><img class="full-media" src="img/cry-sad.gif" alt="special-files-omg" style="height: 90%; top: 0.5em; bottom: 0.5em" /></p-fragment>
 </p-slide>
+<p-slide class="full-media-no-padding">
+  <div class="star-wars-intro">
+    <p class="intro-text">But first, a bit of history.</p>
+    <!-- All Scrolling Content Goes in here -->
+    <div class="main-content">
+      <div class="title-content">
+        <p class="content-header">NextJS<br />before server component</p>
+        <br />
+        <p class="content-body">
+          Before the introduction of server components, NextJS primarily relied on React components, which are client-side components rendered on the browser.
+          <br />
+          These components are part of the client-side rendering (CSR) approach where the entire page is initially rendered on the client side.
+          <br />
+          By default, NextJS uses CSR, where React components are rendered on the client's browser. When a user navigates to a page, NextJS sends the necessary JavaScript bundles
+          to the browser, which then executes React to render the page.
+        </p>
+      </div>
+    </div>
+  </div>
+</p-slide>
+<p-slide>
+  <p-note class="center">
+    <h4 style="margin-bottom: 0.7em">Server Components 🗄️</h4>
+    <p class="small-text">React Server Components allow you to write UI that can be rendered and optionally cached on the server.</p>
+  </p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">🙌 Some Benefit 🙌</h4>
+  <ul class="long-list">
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">Fetching:</span> Server Components allow you to move data fetching to the server, closer to your data source</li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Security:</span> Server Components allow you to keep sensitive data and logic on the server, such as tokens and API keys, without the risk
+        of exposing them to the client
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Performance:</span> Server Components allow you to cache the UI on the server, reducing the amount of work the client needs to do
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">SEO:</span> Server Components allow you to render the UI on the server, improving SEO and performance</li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Initial Page Load and First Contentful Paint (FCP):</span> On the server, we can generate HTML to allow users to view the page immediately,
+        without waiting for the client to download, parse and execute the JavaScript needed to render the page.
+      </li></p-fragment
+    >
+  </ul>
+  <p-notes>
+    Streaming: Server Components allow you to split the rendering work into chunks and stream them to the client as they become ready. This allows the user to see parts of the page
+    earlier without having to wait for the entire page to be rendered on the server.
+  </p-notes>
+  <p-notes>
+    Bundle Sizes: Server Components allow you to keep large dependencies that previously would impact the client JavaScript bundle size on the server. This is beneficial for users
+    with slower internet or less powerful devices, as the client does not have to download, parse and execute any JavaScript for Server Components.
+  </p-notes>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 1em" class="attention"> Important </p-note>
+  <p-note style="--default-more-space: 1.6em" class="small-text more-space"
+    ><span class="graphik-medium">By default, NextJS uses Server Components.</span> This allows you to automatically implement server rendering with no additional configuration,
+    and you can opt into using Client Components when needed.
+  </p-note>
+  <p-notes> To use Client Components, you must add 'use client' at the beginning of the file. </p-notes>
+</p-slide>
+<p-slide>
+  <p-note class="center">
+    <h4 style="margin-bottom: 0.7em">Client Components 🙂‍↔️</h4>
+    <p class="small-text">Client Components allow to write interactive UI that is prerendered on the server and can use client JavaScript to run in the browser</p>
+  </p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">🙌 Some Benefit 🙌</h4>
+  <ul class="long-list">
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Interactivity:</span> Client Components can use state, effects, and event listeners, meaning they can provide immediate feedback to the user
+        and update the UI
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">Browser APIs:</span> Client Components have access to browser APIs, like geolocation or localStorage</li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="client-component.tsx"><p-fragment><code style="font-size: .8em" class="language-javascript">
+  'use client'</code></p-fragment>
+
+ <code style="font-size: .8em" class="language-javascript"> import { useState } from 'react'
+  
+  export default function Counter() {
+    const [count, setCount] = useState(0);
+    return (
+      &lt;div>
+        &lt;p>You clicked {count} times&lt;/p>
+        &lt;button onClick={() => setCount(count + 1)}>Click me&lt;/button>
+      &lt;/div>
+    )
+  }
+  </code></pre>
+</p-slide>
 <p-slide class="cover-subSection">
   <h1>layout.tsx</h1>
 </p-slide>
@@ -25,7 +133,7 @@
       return (
         &lt;section>
           {children}
-          &lt;/section>
+        &lt;/section>
       )
     }
   </code></pre>
@@ -90,7 +198,7 @@
   <p-fragment style="margin-top: 0.5em">(╥﹏╥)</p-fragment>
 </p-slide>
 <p-slide class="center" autoplay="layout-hooks">
-  <p-note style="margin-bottom: 1em">Next.js comes with two hooks for retrieving information</p-note>
+  <p-note style="margin-bottom: 1em">NextJS comes with two hooks for retrieving information</p-note>
   <p-note style="font-size: 0.8em" class="two-columns graphik-medium">
     <p-fragment>useSelectedLayoutSegment</p-fragment>
     <p-fragment>useSelectedLayoutSegment<b>s</b></p-fragment>
@@ -273,7 +381,7 @@
   <h5 style="margin-bottom: 0.7em">Supported HTTP Methods</h5>
   <p-note class="mid-dimension">The following HTTP methods are supported: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.</p-note>
   <p-fragment class="center attention" style="margin-bottom: 0.5em">Important</p-fragment>
-  <p-fragment class="mid-dimension">If an unsupported method is called, Next.js will return a 405 Method Not Allowed response.</p-fragment>
+  <p-fragment class="mid-dimension">If an unsupported method is called, NextJS will return a 405 Method Not Allowed response.</p-fragment>
 </p-slide>
 <p-slide class="center two-columns-divided-vertically" style="gap: 1em">
   <p-fragment class="small-text">👇 In this example, a route with the path &lt;root>/api will be generated</p-fragment>
@@ -342,7 +450,7 @@
   <h1>default.tsx</h1>
 </p-slide>
 <p-slide class="center more-space">
-  The default file is used to render a fallback within Parallel Routes when Next.js cannot recover a slot's active state after a full-page load.
+  The default file is used to render a fallback within Parallel Routes when NextJS cannot recover a slot's active state after a full-page load.
 </p-slide>
 <p-slide class="center more-space"> But wait... what is Parallel Route? 🤔 </p-slide>
 <p-slide class="center more-space">
@@ -368,6 +476,30 @@
           <p-fragment><code style="padding: 0; font-weight: bold;" class="language-javascript">{team}</code></p-fragment>
           <p-fragment><code style="padding: 0; font-weight: bold;" class="language-javascript">{analytics}</code></p-fragment><code class="language-javascript">
         &lt;/>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="center"> So this sounds great, but what about the default.tsx file? 🤔 </p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension"
+    >The default file is used to render a fallback within Parallel Routes when NextJS cannot recover a slot's active state after a full-page load.</p-note
+  >
+  <p-note>🤷‍♂️</p-note>
+  <p-notes>
+    This file is optional and can be used to render a fallback UI when the active state of a slot cannot be recovered after a full-page load. It is also used to render a fallback
+    UI when the slot is not defined in the layout.
+  </p-notes>
+  <p-notes> full page load: when user reload the page </p-notes>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="default.tsx"><code class="language-javascript">
+    import Page, { PageProps } from './page'
+
+    export default async function Default(props: PageProps) {
+      return (
+        &lt;Page {...props} />
       )
     }
   </code></pre>

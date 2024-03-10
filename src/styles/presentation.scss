@@ -524,7 +524,8 @@ pre[data-label-file]::after {
 }
 
 .more-space {
-  line-height: 1.3;
+  --default-more-space: 1.3em;
+  line-height: var(--default-more-space);
 }
 
 .mid-dimension {
