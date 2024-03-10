@@ -25,16 +25,19 @@ export function listenSlideAutoplay(nameSlide, timing = 100) {
   const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
       const isVisibile = mutation.target.getAttribute('aria-hidden') === 'false';
+      const defaultTiming = mutation.target.getAttribute('timing') || 2000;
+      console.log('defaultTiming', defaultTiming);
       if (!isVisibile) return;
       const elements = document.querySelectorAll(`[autoplay="${nameSlide}"] p-fragment:not([no-autoplay])`);
       elements.forEach((el, index) => {
         const ariaHidden = el.getAttribute('aria-hidden');
+        const timingStart = el.getAttribute('timing-start');
         if (ariaHidden === 'true') {
           setTimeout(
             () => {
               el.setAttribute('aria-hidden', 'false');
             },
-            2000 + timing * index
+            (+timingStart || +defaultTiming) + timing * index
           );
         }
       });
