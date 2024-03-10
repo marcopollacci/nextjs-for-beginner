@@ -165,7 +165,7 @@ p-fragment.landing {
 
 .alter-image-size {
   --image-start-size: 8em;
-  --image-width-size: fit-content;
+  --image-width-size: auto;
   height: var(--image-start-size);
   width: var(--image-width-size);
 }
