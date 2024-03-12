@@ -33,3 +33,11 @@ p-deck[mode='speaker'] {
     opacity: 1;
   }
 }
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  ul:has(p-fragment) {
+    --safary-ul-fragment-direction: column;
+    display: flex;
+    flex-direction: var(--safary-ul-fragment-direction);
+  }
+}
