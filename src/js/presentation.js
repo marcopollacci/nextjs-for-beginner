@@ -1,6 +1,6 @@
 CSS.paintWorklet.addModule('./js/sketchy-arrow.js');
 
-export function listenGroupFragment(nameFragment) {
+export function listenGroupFragment(el, nameFragment) {
   const observer = new MutationObserver(mutations => {
     mutations.forEach(() => {
       const elements = document.querySelectorAll(`[group-fragment="${nameFragment}"]`);
@@ -12,22 +12,20 @@ export function listenGroupFragment(nameFragment) {
       });
     });
   });
-
-  document.querySelectorAll(`[group-fragment="${nameFragment}"]`).forEach(el => {
-    observer.observe(el, {
-      attributes: true,
-      attributeFilter: ['aria-hidden']
-    });
+  observer.observe(el, {
+    attributes: true,
+    attributeFilter: ['aria-hidden']
   });
 }
 
-export function listenSlideAutoplay(nameSlide, timing = 100) {
+export function listenSlideAutoplay(el) {
   const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
       const isVisibile = mutation.target.getAttribute('aria-hidden') === 'false';
       const defaultTiming = mutation.target.getAttribute('timing') || 2000;
+      const timing = mutation.target.getAttribute('timing-fragment') || 100;
       if (!isVisibile) return;
-      const elements = document.querySelectorAll(`[autoplay="${nameSlide}"] p-fragment:not([no-autoplay])`);
+      const elements = el.querySelectorAll(`p-fragment:not([no-autoplay])`);
       elements.forEach((el, index) => {
         const ariaHidden = el.getAttribute('aria-hidden');
         const timingStart = el.getAttribute('timing-start');
@@ -42,15 +40,16 @@ export function listenSlideAutoplay(nameSlide, timing = 100) {
       });
     });
   });
-
-  document.querySelectorAll(`[autoplay="${nameSlide}"]`).forEach(el => {
-    observer.observe(el, {
-      attributes: true,
-      attributeFilter: ['aria-hidden']
-    });
+  observer.observe(el, {
+    attributes: true,
+    attributeFilter: ['aria-hidden']
   });
 }
 
-listenGroupFragment('project-structure');
-listenSlideAutoplay('special-file');
-listenSlideAutoplay('layout-hooks', 450);
+document.querySelectorAll(`p-slide[autoplay]`).forEach(el => {
+  listenSlideAutoplay(el);
+});
+
+document.querySelectorAll(`p-fragment[group-fragment]`).forEach(el => {
+  listenGroupFragment(el, el.getAttribute('group-fragment'));
+});
