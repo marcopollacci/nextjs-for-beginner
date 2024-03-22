@@ -178,10 +178,11 @@ pre {
 }
 
 .long-list {
+  --li-margin-bottom: 0.3em;
   @include mixins.smallText;
 
   li {
-    margin-bottom: 0.3em;
+    margin-bottom: var(--li-margin-bottom);
   }
 }
 

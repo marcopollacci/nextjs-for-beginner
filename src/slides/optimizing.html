@@ -1,0 +1,115 @@
+<p-slide class="cover">
+  <h1>Optimizing</h1>
+</p-slide>
+<p-slide class="center mid-dimension">
+  <p>NextJS comes with a variety of built-in optimizations designed to improve your application's <b>speed and Core Web Vitals.</b></p>
+  <span style="font-size: 2em">🏎️💨</span>
+  <p-notes
+    >The strength of NextJS, compared to other frameworks, lies precisely in its strongly performance-oriented web development and SEO, making it decidedly one of the best choices
+    in web ranking</p-notes
+  >
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Built-in Component</h1>
+</p-slide>
+<p-slide>
+  <h6 style="margin-bottom: 0.7em">Built-in components abstract away the complexity of implementing common UI optimizations. These components are</h6>
+  <ul style="--li-margin-bottom: 1em; margin-top: 0.5em" class="long-list">
+    <p-fragment
+      ><li>
+        🖼 <span class="graphik-medium">Image</span>: Built on the native &lt;img /> element. The Image Component optimizes images for performance by lazy loading and automatically
+        resizing images based on device size
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        🌐 <span class="graphik-medium">Link</span>: Built on the native &lt;a> tags. The Link Component prefetches pages in the background, for faster and smoother page
+        transitions.
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📝 <span class="graphik-medium">Script</span>: Built on the native &lt;script> tags. The Script Component gives you control over loading and execution of third-party
+        scripts
+      </li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="component.tsx"><code class="mid-dimension language-javascript">
+    import Image from 'next/image'
+    import profilePic from './me.png'
+     
+    export default function Page() {
+      return (
+        &lt;Image
+          src={profilePic}
+          alt="Picture of the author"
+        />
+      )
+    }</code></pre>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Metadata</h1>
+</p-slide>
+<p-slide>
+  <h5 class="mid-dimension">The Metadata API in Next.js allows you to modify the <b>&lt;head></b> element of a page. You can configure metadata in two ways:</h5>
+
+  <ul style="--li-margin-bottom: 1em; margin-top: 0.5em" class="long-list">
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Config-based Metadata:</span> Export a static metadata object or a dynamic generateMetadata function in a layout.tsx or page.tsx file.
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">File-based Metadata:</span> Add static or dynamically generated special files to route segments.</li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Static metadata 🗿</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+  import type { Metadata } from 'next'
+
+  export const metadata: Metadata = {
+    title: '...',
+    description: '...',
+  }
+  
+  export default function Page() {}
+</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Dynamic metadata 🏃🏻‍♀️</h4>
+  <pre class="small-line" data-label-file="page.tsx"><code class="small-text language-javascript">    import type { Metadata, ResolvingMetadata } from 'next'
+    //....
+    export async function generateMetadata(
+      { params, searchParams }: Props,
+      parent: ResolvingMetadata
+    ): Promise&lt;Metadata> {
+      const id = params.id // read route params
+      const product = await fetch(`https://.../${id}`).then((res) => res.json())
+     
+      return {
+        title: product.title,
+      }
+    }
+    export default function Page({ params, searchParams }: Props) {}</code></pre>
+</p-slide>
+<p-slide>
+  <p-note class="center" style="margin-bottom: 0.4em">🫵 Good to know 🫵</p-note>
+  <ul style="--li-margin-bottom: 1em" class="long-list">
+    <p-fragment><li>📌 Both static and dynamic metadata through generateMetadata are only supported in Server Components.</li></p-fragment>
+    <p-fragment><li>📌 Fetch requests are automatically memoized for the same data across generateMetadata</li></p-fragment>
+    <p-fragment
+      ><li>
+        📌 NextJS will wait for data fetching inside generateMetadata to complete before streaming UI to the client. This guarantees the first part of a streamed response includes
+        &lt;head> tags.
+      </li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Lazy Loading</h1>
+</p-slide>
