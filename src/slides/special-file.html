@@ -173,7 +173,7 @@
 <p-slide>
   <p-note>
     <h5 style="margin-bottom: 0.7em">Multiple Root Layouts</h5>
-    <p class="small-text">To create multiple root layouts, remove the top-level layout.js file, and add a layout.js file inside each route groups.</p>
+    <p class="small-text">To create multiple root layouts, remove the top-level layout.tsx file, and add a layout.tsx file inside each route groups.</p>
   </p-note>
   <p-notes>
     This is useful for partitioning an application into sections that have a completely different UI or experience. The &lt;html> and &lt;body> tags need to be added to each root
@@ -207,6 +207,7 @@
     <p-fragment>useSelectedLayoutSegment<b>s</b></p-fragment>
   </p-note>
   <p-fragment style="margin-top: 1em">😎👌🔥</p-fragment>
+  <p-fragment style="margin-top: 1em; font-style: italic">...but you can use only on client component...</p-fragment>
 </p-slide>
 <p-slide>
   <p-note>
@@ -410,7 +411,7 @@
   <ul class="mid-dimension">
     <p-fragment><li>📌 Route Handlers are cached by default when using the GET method with the Response object.</li></p-fragment>
     <p-fragment><li>📌 Route do not participate in layouts or client-side navigations like page</li></p-fragment>
-    <p-fragment><li>📌 Route cannot be a route.js file at the same route as page.js.</li></p-fragment>
+    <p-fragment><li>📌 Route cannot be a route.tsx file at the same route as page.tsx.</li></p-fragment>
   </ul>
 </p-slide>
 <p-slide class="cover-subSection">
@@ -484,7 +485,7 @@
 <p-slide class="center"> So this sounds great, but what about the default.tsx file? 🤔 </p-slide>
 <p-slide class="center">
   <p-note class="mid-dimension"
-    >The default file is used to render a fallback within Parallel Routes when NextJS cannot recover a slot's active state after a full-page load.</p-note
+    >As we said, the default.tsx file is used to render a fallback within Parallel Routes when NextJS cannot recover a slot's active state after a full-page load.</p-note
   >
   <p-note>🤷‍♂️</p-note>
   <p-notes>
