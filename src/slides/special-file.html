@@ -358,8 +358,7 @@
 </p-slide>
 <p-slide>
   <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
-  <pre data-label-file="error.tsx"><code class="language-javascript">
-    'use client' // Error components must be Client Components
+  <pre data-label-file="error.tsx"><code class="mid-dimension language-javascript">    'use client' //<- Error components must be Client Components
     export default function Error({ error, reset}: {
       error: Error & { digest?: string }
       reset: () => void
@@ -370,8 +369,7 @@
           &lt;button onClick={() => reset()}>Try again&lt;/button>
         &lt;/div>
       )
-    }
-  </code></pre>
+    }</code></pre>
 </p-slide>
 <p-slide class="cover-subSection">
   <h1>route.tsx</h1>

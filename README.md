@@ -1,12 +1,14 @@
 # NextJS for Beginner
 
-Slides for Gellify Internal Course.
+Slides for GELLIFY Internal Course.
+
+Originally conceived for the 2024 May talk for GELLIFY, Bologna, 07-05-2024.
 
 Built on top of [P-Slides](https://github.com/MaxArt2501/p-slides)!
 
 ## Building
 
-Node.js 10.x is required (actually it could work in Node 8 - haven't checked).
+Node.js >= 10.x is required.
 
 To start the presentation in development mode:
 
@@ -18,4 +20,4 @@ Or `npm run build` to just build it, then serve `/public` with your HTTP server 
 
 ## Tests
 
-... what?
+[![not-today.png](https://i.postimg.cc/c4VdHvzC/not-today.png)](https://postimg.cc/zVSs2G8Y)
