@@ -1,0 +1,51 @@
+<p-slide class="cover">
+  <h1>Functions and Api</h1>
+</p-slide>
+<p-slide class="center">
+  <h5>Next.js has a range of framework functions and APIs that are truly useful during the development of our application.</h5>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em">useParams</h4>
+  <pre data-label-file="component.tsx"><code class="language-javascript">
+    'use client' 
+    import { useParams } from 'next/navigation'
+     
+    export default function ExampleClientComponent() {
+      const params = useParams<{ tag: string; item: string }>()  
+
+      // Route -> /shop/[tag]/[item]
+      // URL -> /shop/shoes/nike-air-max-97
+      // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
+      console.log(params)
+    }</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em">useSearchParams</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    'use client'
+    import { useSearchParams } from 'next/navigation'
+     
+    export default function SearchBar() {
+      const searchParams = useSearchParams()
+      const search = searchParams.get('search')
+     
+      // URL -> `/dashboard?search=my-project`
+      // `search` -> 'my-project'
+      return &lt;>Search: {search}&lt;/>
+    }</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em">useRouter</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    'use client' 
+    import { useRouter } from 'next/navigation'
+ 
+    export default function Page() {
+      const router = useRouter()     
+      return (
+        &lt;button type="button" onClick={() => router.push('/dashboard')}>
+          Dashboard
+        &lt;/button>
+      )
+    }</code></pre>
+</p-slide>
