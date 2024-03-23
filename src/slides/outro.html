@@ -1,0 +1,86 @@
+<p-slide class="cover">
+  <h1>Useful Tool</h1>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>SWR</h1>
+</p-slide>
+<p-slide>
+  <h5 class="mid-dimension">The team behind NextJS has created a React hook library for data fetching called SWR.</h5>
+  <ul class="long-list">
+    <p-fragment><li>📌 Fast, lightweight and reusable data fetching</li></p-fragment>
+    <p-fragment><li>📌 Built-in cache and request deduplication</li></p-fragment>
+    <p-fragment><li>📌 Real-time experience</li></p-fragment>
+    <p-fragment><li>📌 Transport and protocol agnostic</li></p-fragment>
+    <p-fragment><li>📌 SSR / ISR / SSG support</li></p-fragment>
+    <p-fragment><li>📌 TypeScript ready</li></p-fragment>
+  </ul>
+  <p-notes
+    >The team behind Next.js has created a React hook library for data fetching called SWR. It is highly recommended if you are fetching data on the client-side. It handles
+    caching, revalidation, focus tracking, refetching on intervals, and more.</p-notes
+  >
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="client-component.tsx"><code class="small-text language-javascript">    import useSWR from 'swr'
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    
+    function Profile() {
+      const { data, error } = useSWR('/api/profile-data', fetcher)
+      if (error) return &lt;div>Failed to load&lt;/div>
+      if (!data) return &lt;div>Loading...&lt;/div>
+      return (
+        &lt;div>
+          &lt;h1>{data.name}&lt;/h1>
+          &lt;p>{data.bio}&lt;/p>
+        &lt;/div>
+      )}</code></pre>
+  <p-notes>
+    Using the same example as above, we can now use SWR to fetch the profile data. SWR will automatically cache the data for us and will revalidate the data if it becomes stale.
+  </p-notes>
+</p-slide>
+<p-slide autoplay="swr" class="center">
+  <h5>👇 Follow this link for more information and options! 👇</h5>
+  <p-fragment timing-start="500"><p style="font-size: 0.73em">https://swr.vercel.app/</p></p-fragment>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Zustand</h1>
+</p-slide>
+<p-slide class="cover blockquote">
+  <blockquote>
+    <p>A small, fast and scalable bearbones state-management solution using simplified flux principles. Has a comfy API based on hooks, isn't boilerplatey or opinionated.</p>
+    <cite><a href="https://github.com/pmndrs/zustand">https://github.com/pmndrs/zustand</a></cite>
+  </blockquote>
+</p-slide>
+<p-slide class="two-columns">
+  <p-note>
+    <h5 style="margin-bottom: 1em">Why zustand over context?</h5>
+    <ul class="long-list">
+      <p-fragment><li>📌 Less boilerplate</li></p-fragment>
+      <p-fragment><li>📌 Renders components only on changes</li></p-fragment>
+      <p-fragment><li>📌 Centralized, action-based state management</li></p-fragment>
+    </ul>
+  </p-note>
+  <p-fragment><img class="alter-image-size" alt="zustand-bear" src="img/zustand_bear.png" /></p-fragment>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="zustand.tsx"><code class="small-text language-javascript">    import { create } from 'zustand'
+    type Store = {
+      count: number
+      inc: () => void
+    }
+    const useStore = create&lt;Store>()((set) => ({
+      count: 1,
+      inc: () => set((state) => ({ count: state.count + 1 })),
+    }))
+    
+    function Counter() {
+      const { count, inc } = useStore()
+      return (
+        &lt;div>
+          &lt;span>{count}&lt;/span>
+          &lt;button onClick={inc}>one up&lt;/button>
+        &lt;/div>
+      )
+    }</code></pre>
+</p-slide>
