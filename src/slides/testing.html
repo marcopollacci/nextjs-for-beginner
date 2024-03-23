@@ -1,0 +1,55 @@
+<p-slide class="cover">
+  <h1>Testing</h1>
+</p-slide>
+<p-slide>
+  <img class="full-media" src="img/cry-sad.gif" alt="special-files-omg" style="height: 90%; top: 0.5em; bottom: 0.5em" />
+</p-slide>
+<p-slide class="cover-subSection center">
+  <h1>But...With Cypress</h1>
+  <p-fragment><span>٩(^ᗜ^ )و ´-</span></p-fragment>
+  <p-notes>You can use a lot of tool like Vitest Jest Playwright Cypress</p-notes>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0">Configuration</h5>
+  <h6 style="margin-bottom: 0; margin-top: 1em">Quick setup</h6>
+  <pre><code class="mid-dimension language-bash">npx create-next-app@latest --example with-cypress with-cypress-app</code></pre>
+  <p-fragment
+    ><h6 style="margin-bottom: 0; margin-top: 1em">Manual setup</h6>
+    <pre><code class="mid-dimension language-bash">npm install -D cypress
+# or
+yarn add -D cypress
+# or
+pnpm install -D cypress</code></pre>
+  </p-fragment>
+</p-slide>
+<p-slide class="cover-subSection"><h1>Just a little example</h1> </p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Component code 👨‍💻</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    import Link from 'next/link'
+ 
+    export default function Page() {
+      return (
+        &lt;div>
+          &lt;h1>About&lt;/h1>
+          &lt;Link href="/">Home&lt;/Link>
+        &lt;/div>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Component test code 👨‍💻</h4>
+  <pre data-label-file="about.cy.tsx"><code class="language-javascript">
+    import Page from '../../app/page'
+
+    describe('&lt;Page />', () => {
+      it('should render and display expected content', () => {
+        cy.mount(&lt;Page />)
+     
+        cy.get('h1').contains('Aboutù')
+
+        cy.get('a[href="/"]').should('be.visible')
+      })
+    })</code></pre>
+</p-slide>

@@ -1,12 +1,13 @@
 const styleHeader = document.createElement('style');
-styleHeader.innerHTML = `header { display: flex;
+styleHeader.innerHTML = `header { 
+  display: flex;
   align-items: center;
   gap: 0.4em;
   :first-child {
     margin-inline-end: -0.4em;
   }
   :nth-child(3) {
-    margin-inline-end: -0.3em;
+    margin-inline-end: -0.35em;
   }
  }`;
 

@@ -113,3 +113,33 @@
 <p-slide class="cover-subSection">
   <h1>Lazy Loading</h1>
 </p-slide>
+<p-slide class="center">
+  Lazy loading helps improve the initial loading performance by decreasing the amount of JavaScript needed to render a route.
+  <span style="margin-top: 0.3em">🥱</span>
+</p-slide>
+<p-slide class="center">
+  <h5>There are two ways you can implement lazy loading in NextJS</h5>
+  <p-note style="font-size: 0.8em; text-align: start" class="graphik-medium">
+    <p-fragment
+      ><p>👉 Using Dynamic Imports with <code>next/dynamic</code></p></p-fragment
+    >
+    <p-fragment
+      ><p>👉 Using <code>React.lazy()</code> with Suspense</p></p-fragment
+    >
+  </p-note>
+  <p-notes> next/dynamic is a composite of React.lazy() and Suspense. It behaves the same way in the app and pages directories to allow for incremental migration </p-notes>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="home.tsx"><code class="language-javascript">
+    import dynamic from 'next/dynamic'
+ 
+    const DynamicHeader = dynamic(() => import('../components/header'), {
+      loading: () => <p>Loading...</p>,
+    })
+     
+    export default function Home() {
+      return &lt;DynamicHeader />
+    }
+  </code></pre>
+</p-slide>
