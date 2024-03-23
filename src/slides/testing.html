@@ -47,7 +47,7 @@ pnpm install -D cypress</code></pre>
       it('should render and display expected content', () => {
         cy.mount(&lt;Page />)
      
-        cy.get('h1').contains('Aboutù')
+        cy.get('h1').contains('About')
 
         cy.get('a[href="/"]').should('be.visible')
       })
