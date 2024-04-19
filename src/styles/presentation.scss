@@ -460,10 +460,6 @@ a {
   }
 }
 
-.qr {
-  filter: grayscale(90%) brightness(60%);
-}
-
 .text-cover {
   @include mixins.gradientText(#000, #a0a0a0);
 }
@@ -481,6 +477,20 @@ a {
 }
 
 p-slide {
+  gfy-blob {
+    display: none;
+    position: absolute;
+    filter: brightness(1.5);
+    opacity: 0.9;
+    width: 8em;
+    height: 8em;
+    animation: box 7s ease infinite alternate;
+  }
+  &[aria-hidden='false'] {
+    gfy-blob {
+      display: block;
+    }
+  }
   .group-fragment[aria-hidden='false'] {
     display: none;
     &:last-child {
@@ -534,5 +544,28 @@ pre[data-label-file]::after {
   font-size: 0.7em;
   li {
     margin-bottom: 0.6em;
+  }
+}
+
+@keyframes box {
+  0% {
+    inset-inline-start: var(--rando0);
+    inset-block-start: var(--rando1);
+  }
+  25% {
+    inset-inline-start: var(--rando2);
+    inset-block-start: var(--rando3);
+  }
+  50% {
+    inset-inline-start: var(--rando4);
+    inset-block-start: var(--rando5);
+  }
+  75% {
+    inset-inline-start: var(--rando6);
+    inset-block-start: var(--rando7);
+  }
+  100% {
+    inset-inline-start: var(--rando8);
+    inset-block-start: var(--rando9);
   }
 }
