@@ -209,6 +209,9 @@ pre {
   bottom: 0;
   font-size: 0.4em;
   transform: translate(-50%, -50%);
+  span:first-of-type {
+    margin-bottom: 0.3em;
+  }
 }
 
 .cover {

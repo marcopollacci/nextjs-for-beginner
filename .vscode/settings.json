@@ -13,7 +13,17 @@
   "git.smartCommitChanges": "tracked",
   "gitlens.views.remotes.branches.layout": "tree",
   "eslint.lintTask.enable": true,
-  "conventionalCommits.scopes": ["project-structure", "project", "special-file", "thanks", "optimizing", "testing", "function", "outro"],
+  "conventionalCommits.scopes": [
+    "project-structure",
+    "project",
+    "special-file",
+    "thanks",
+    "optimizing",
+    "testing",
+    "function",
+    "outro",
+    "intro"
+  ],
   "files.eol": "\n",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
