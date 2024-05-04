@@ -257,3 +257,49 @@ $fade-border-image-y: linear-gradient(
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
 }
+
+.circle-sketch-highlight {
+  --circle-sketch-height: 1em;
+  --circle-sketch-border-width: 2px;
+  --circle-sketch-border-color: #ef8c22;
+  position: relative;
+  left: 0.5em;
+  font-weight: 500;
+  &:before {
+    /* The before element creates a 'skewed' border at the bottom. */
+    content: '';
+    z-index: -1;
+    left: -0.5em;
+    top: -0.1em;
+    border-width: var(--circle-sketch-border-width);
+    border-style: solid;
+    border-color: var(--circle-sketch-border-color);
+    position: absolute;
+    border-right-color: transparent;
+    width: 100%;
+    height: var(--circle-sketch-height);
+    transform: rotate(2deg); /* Skew it a bit */
+    opacity: 0.7; /* Make it a bit transparent */
+    border-radius: 50%;
+    padding: 0.1em 0.25em;
+  }
+  &:after {
+    /* The after element creates a 'skewed' border at the top. */
+    content: '';
+    z-index: -1;
+    left: -0.5em;
+    top: 0.1em;
+    padding: 0.1em 0.25em;
+    border-width: var(--circle-sketch-border-width);
+    border-style: solid;
+    border-color: var(--circle-sketch-border-color);
+    border-left-color: transparent;
+    border-top-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: var(--circle-sketch-height);
+    transform: rotate(-1deg); /* Skew it a bit */
+    opacity: 0.7; /* Make it a bit transparent */
+    border-radius: 50%;
+  }
+}
