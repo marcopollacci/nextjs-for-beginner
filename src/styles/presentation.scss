@@ -163,6 +163,14 @@ p-fragment.landing {
   @include mixins.smallText;
 }
 
+.cover img.logo-nextjs {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  height: var(--image-start-size);
+  margin-block-end: 0.6em;
+}
+
 .alter-image-size {
   --image-start-size: 8em;
   --image-width-size: auto;
