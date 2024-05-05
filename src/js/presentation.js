@@ -46,10 +46,28 @@ export function listenSlideAutoplay(el) {
   });
 }
 
+export function listenSlideFollowFragment(el) {
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      const isVisibile = mutation.target.getAttribute('aria-hidden') === 'false';
+      if (!isVisibile) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    });
+  });
+  observer.observe(el, {
+    attributes: true,
+    attributeFilter: ['aria-hidden']
+  });
+}
+
 document.querySelectorAll(`p-slide[autoplay]`).forEach(el => {
   listenSlideAutoplay(el);
 });
 
 document.querySelectorAll(`p-fragment[group-fragment]`).forEach(el => {
   listenGroupFragment(el, el.getAttribute('group-fragment'));
+});
+
+document.querySelectorAll(`p-slide[follow-fragments] p-fragment`).forEach(el => {
+  listenSlideFollowFragment(el);
 });

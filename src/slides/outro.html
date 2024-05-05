@@ -62,18 +62,21 @@
   </p-note>
   <p-fragment><img class="alter-image-size" alt="zustand-bear" src="img/zustand_bear.png" /></p-fragment>
 </p-slide>
-<p-slide>
+<p-slide follow-fragments>
   <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
-  <pre class="small-line" data-label-file="zustand.tsx"><code class="small-text language-javascript">    import { create } from 'zustand'
-    type Store = {
+  <pre data-label-file="zustand.tsx"><code class="language-javascript">
+    import { create } from 'zustand'
+  </code>
+    <p-fragment><code class="language-javascript">type Store = {
       count: number
       inc: () => void
     }
-    const useStore = create&lt;Store>()((set) => ({
+  </code></p-fragment>
+    <p-fragment><code class="language-javascript">const useStore = create&lt;Store>()((set) => ({
       count: 1,
       inc: () => set((state) => ({ count: state.count + 1 })),
-    }))
-    
+    }))</code></p-fragment>
+    <p-fragment><code class="language-javascript">
     function Counter() {
       const { count, inc } = useStore()
       return (
@@ -82,5 +85,6 @@
           &lt;button onClick={inc}>one up&lt;/button>
         &lt;/div>
       )
-    }</code></pre>
+    }
+  </code></p-fragment></pre>
 </p-slide>
