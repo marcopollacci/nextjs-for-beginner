@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NextJS for Beginner</title>
+    <base href=".." />
+    <link href="favicon.ico" rel="shortcut icon" type="image/svg+xml" />
+    <link href="css/prism-one-light.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/print.css" media="print" rel="stylesheet" />
+    <link href="css/presentation.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <p-deck> <!--slide:cover-gellify--><p-slide class="cover">
+  <img style="--image-start-size: 5em" class="alter-image-size logo-nextjs" src="img/next-uwu-logo.avif" alt="Next.js uwu logo by SAWARATSUKI" />
+  <p-note class="center">
+    <h6>Deep dive into a fullstack framework for React</h6>
+  </p-note>
+  <p-note class="center bottom-fist-page text-sub-section">
+    <span>Marco Pollacci</span>
+    <span>07/05/2024 - Phygital Hub</span>
+  </p-note>
+</p-slide><!--/slide:cover-gellify-->
+<!--slide:cover--><p-slide blob-slide class="two-columns">
+  <gfy-blob
+    clearcoatroughness="0.4"
+    clearcoat="0.25"
+    color="#2a0b29"
+    envmap="img/envmap.jpg"
+    envmapintensity="0.95"
+    fixnormals=""
+    frequency="0.01"
+    metalness="0.64"
+    numberofwaves="1.47"
+    reflectivity="1"
+    roughness="0"
+    surfacepoleamount="1"
+    surfacedistort="3.2"
+    surfacefrequency="0.97"
+    surfacespeed="0.8">
+    <gfy-spotlight color="#c556c6" intensity="2.68" distance="14.47" angle="0.85" penumbra="0.45" decay="0.24" x="-4.47" y="2.4" z="0.53"></gfy-spotlight>
+    <gfy-spotlight color="#30ffe2" intensity="2.08" distance="8.73" angle="0.63" penumbra="1" decay="0" x="-1.6" y="-5.33" z="3.67"></gfy-spotlight>
+    <gfy-spotlight color="#ffffff" intensity="2.03" distance="0" angle="0.35" penumbra="1" decay="1" x="6.13" y="2.67" z="2.13"></gfy-spotlight>
+    <gfy-spotlight color="#ff4cfa" intensity="1.25" distance="7" angle="0.82" penumbra="1" decay="0.5" x="0.53" y="2.4" z="3.4"></gfy-spotlight>
+    <gfy-spotlight color="#ffffff" intensity="0.63" distance="7" angle="0.79" penumbra="1" decay="0.5" x="-3" y="-3" z="6.2"></gfy-spotlight>
+  </gfy-blob>
+  <p-note class="text-cover my-data my-presentation">
+    <h5>Hello Folks!</h5>
+    <img src="img/me.jpg" class="my-face" alt="me" />
+    <span>Marco Pollacci</span>
+    <span>Senior Software Developer @GELLIFY</span>
+    <div></div>
+  </p-note>
+  <img style="--image-start-size: 9em" class="alter-image-size" src="img/qr_link.svg" alt="qr" />
+</p-slide>
+<script defer type="module" src="https://cdn-pollacci.pages.dev/blob.js"></script><!--/slide:cover-->
+<!--slide:intro--><p-slide class="cover">
+  <h1>What is NextJS?</h1>
+</p-slide>
+<p-slide class="cover blockquote">
+  <blockquote>
+    <p>
+      NextJS is a <b>React framework</b> for building full-stack web applications. You use React Components to build user interfaces, and NextJS for additional features and
+      optimizations
+    </p>
+    <p>
+      Under the hood, NextJS also abstracts and automatically configures tooling needed for React, like bundling, compiling, and more. This allows you to focus on building your
+      application instead of spending time with configuration.
+    </p>
+    Whether you're an individual developer or part of a larger team, NextJS can help you build interactive, dynamic, and fast React applications.
+  </blockquote>
+  <cite><a href="https://nextjs.org/docs#what-is-nextjs">https://nextjs.org/docs#what-is-nextjs</a></cite>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 1em">👇To create a project just use👇</p-note>
+  <code class="small-text language-bash" style="text-align: center; display: block">npx create-next-app@latest my-next-app</code>
+</p-slide>
+
+<p-slide class="center">
+  <pre class="language-javascript"><code>Need to install the following packages:
+create-next-app@14.1.2
+Ok to proceed? (y) y</code>
+
+<p-fragment><code>✔ Would you like to use TypeScript? … No / Yes //Yes</code></p-fragment>
+<p-fragment><code>✔ Would you like to use ESLint? … No / Yes //Yes</code></p-fragment>
+<p-fragment><code>✔ Would you like to use Tailwind CSS? … No / Yes //No</code></p-fragment>
+<p-fragment><code>✔ Would you like to use `src/` directory? … No / Yes //Yes</code></p-fragment>
+<p-fragment><code>✔ Would you like to use App Router? (recommended) … No / Yes //Yes</code></p-fragment>
+<p-fragment><code>✔ Would you like to customize the default import alias
+                    (@/*)? … No / Yes //Yes</code></p-fragment>
+<p-fragment><code>Creating a new NextJS app in ....</code></p-fragment>
+</pre>
+</p-slide>
+<p-slide class="center" style="position: relative">
+  <p-note style="margin-bottom: 1em">👇Once the installation process is finished, you just need to execute the command👇 </p-note>
+  <code class="small-text language-bash" style="text-align: center; display: block">npm run dev</code>
+  <p-fragment style="position: absolute; inset-inline-start: 4em">
+    <img alt="start" src="img/start.png" style="width: 19em; rotate: -6deg" />
+  </p-fragment>
+</p-slide><!--/slide:intro-->
+<!--slide:project-structure--><p-slide class="cover">
+  <h1>Project Structure</h1>
+</p-slide>
+<p-slide class="two-columns">
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">Project Structure</h5>
+    <ul class="long-list more-margin">
+      <p-fragment>
+        <li>
+          <span class="graphik-medium">layout.tsx:</span> Shared UI structure definition.
+          <p-fragment group-fragment="project-structure">
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 12.3em; background: transparent">👉</span>
+          </p-fragment>
+        </li>
+      </p-fragment>
+      <p-fragment>
+        <li>
+          <span class="graphik-medium">page.tsx:</span> Individual page component file
+          <p-fragment group-fragment="project-structure">
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 14.3em; background: transparent">👉</span>
+          </p-fragment>
+        </li>
+      </p-fragment>
+      <p-fragment>
+        <li>
+          <span class="graphik-medium">global.css:</span> Global styles for the entire application.
+          <p-fragment group-fragment="project-structure">
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 11.2em; background: transparent">👉</span>
+          </p-fragment>
+        </li>
+      </p-fragment>
+      <p-fragment>
+        <li>
+          <span class="graphik-medium">page.module.css:</span> CSS module for individual page components.
+          <p-fragment group-fragment="project-structure">
+            <span style="position: absolute; inset-inline-end: 17.3em; top: 13.3em; background: transparent">👉</span>
+          </p-fragment>
+        </li>
+      </p-fragment>
+      <p-fragment>
+        <li>
+          <span class="graphik-medium">next.config.mjs:</span> Configuration file for NextJS
+          <p-fragment group-fragment="project-structure">
+            <span style="position: absolute; inset-inline-end: 17.8em; bottom: 8.2em; background: transparent">👉</span>
+          </p-fragment>
+        </li>
+      </p-fragment>
+      <p-fragment>
+        <li>
+          <span class="graphik-medium">public/:</span> Directory containing static assets accessible directly by the client
+          <p-fragment group-fragment="project-structure">
+            <span style="position: absolute; inset-inline-end: 18.6em; top: 7.1em; background: transparent">👉</span>
+          </p-fragment>
+        </li>
+      </p-fragment>
+    </ul>
+  </p-note>
+  <img class="alter-image-size" style="--image-start-size: 10em" alt="project-structure" src="img/project-structure.png" />
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>NextJS configuration file</h1>
+</p-slide>
+<p-slide class="center">
+  <h5>NextJS can be configured through a next.config.mjs file in the root of your project directory with a default export</h5>
+  <pre data-label-file="next.config.mjs"><code class="language-javascript">
+      /**
+      * @type {import('next').NextConfig}
+      */
+      const nextConfig = {
+        /* config options here */
+      };
+      
+      export default nextConfig;
+    </code></pre>
+</p-slide>
+<p-slide class="center">
+  <p-note><h4>🛠️ Example of some aviable configuration 🛠️</h4></p-note>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0.5em" class="graphik-medium">🛠️ basePah</h5>
+  <p class="mid-dimension">basePath allows you to set a path prefix for the application. For example, to use /docs instead of '/'</p>
+  <pre data-label-file="next.config.mjs"><code class="language-javascript">
+      const nextConfig = {
+        basePath: '/docs',
+      };
+      
+      export default nextConfig;
+    </code></pre>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0.5em" class="graphik-medium">🛠️ crossOrigin</h5>
+  <p class="mid-dimension">Use the crossOrigin option to add a crossOrigin attribute in all &lt;script> tags generated by the next/script component</p>
+  <pre data-label-file="next.config.mjs"><code class="language-javascript">
+      const nextConfig = {
+        crossOrigin: 'anonymous',
+      };
+      
+      export default nextConfig;
+    </code></pre>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0.5em" class="graphik-medium">🛠️ logging</h5>
+  <p class="mid-dimension">You can configure the logging level and whether the full URL is logged to the console when running NextJS in development mode.</p>
+  <pre data-label-file="next.config.mjs"><code class="language-javascript">
+      const nextConfig = {
+        logging: {
+          fetches: {
+            fullUrl: true,
+          },
+        },
+      };
+      export default nextConfig;</code></pre>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0.5em" class="graphik-medium">🛠️ rewrites</h5>
+  <p class="mid-dimension">Rewrites allow you to map an incoming request path to a different destination path.</p>
+  <pre data-label-file="next.config.mjs"><code class="mid-dimension small-line language-javascript">        //....
+        async rewrites() {
+          return [
+            {
+              source: '/about',
+              destination: '/',
+            },
+          ]
+        }</code></pre>
+</p-slide>
+<p-slide autoplay="next-config-js" class="center">
+  <h5>👇 Follow this link for more information and options! 👇</h5>
+  <p-fragment timing-start="500"><p style="font-size: 0.73em">https://nextjs.org/docs/app/api-reference/next-config-js</p></p-fragment>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Routing System</h1>
+</p-slide>
+<p-slide class="two-columns">
+  <img alt="routing" src="img/routing.avif" />
+  <p-note>
+    <h5 style="margin-bottom: 0.8em">Routing System</h5>
+    <p class="small-text">By convention, the folder organization has been structured as follows:</p>
+    <ul class="long-list" style="margin-bottom: 0.3em">
+      <li>📌 Tree: the entire routing hierarchy</li>
+      <li>📌 Subtree: each branch stemming from a root node</li>
+      <li>📌 Root: each node from which a branch originates</li>
+      <li>📌 Leaf: each node that has no more children</li>
+    </ul>
+  </p-note>
+</p-slide>
+<p-slide class="two-columns-divided-vertically">
+  <img alt="routing" src="img/routing.avif" />
+  <p-note>
+    <p class="small-text">
+      For example, to reach the
+      <span class="graphik-medium">analytics</span> component, it will be sufficient to follow the hierarchy and it will correspond to
+    </p>
+    <p class="small-text graphik-medium"><b>&lt;root>/dashboard/analytic</b></p>
+  </p-note>
+  <p-fragment><span class="small-text" style="position: absolute; top: 9.4em; left: 8.2em">❶</span></p-fragment>
+  <p-fragment><span class="small-text" style="position: absolute; top: 11.9em; left: 11.5em">❷</span></p-fragment>
+  <p-fragment><span class="small-text" style="position: absolute; top: 14.3em; left: 9.5em">❸</span></p-fragment>
+  <p-notes> Based on the filesystem organization, even for those approaching the framework for the first time, it will be easy to understand the various generated URLs </p-notes>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">Route Segments</h4>
+  <p-note class="small-text">Each folder in a route represents a route segment. Each route segment is mapped to a corresponding segment in a URL path.</p-note>
+  <p-note style="margin-top: 0.5em"><img src="img/route-segments-to-path-segments.avif" alt="route-segments" class="alter-image-size" /></p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">Colocation</h4>
+  <p-note class="small-text">
+    In addition to special files, you have the option to colocate your own files (e.g. components, styles, tests, etc) inside folders in the app directory.
+  </p-note>
+  <p-note class="center" style="margin-top: 0.5em"
+    ><img style="--image-start-size: 9em" src="img/project-organization-colocation.avif" alt="colocation" class="alter-image-size"
+  /></p-note>
+  <p-notes> This is because while folders define routes, only the contents returned by page.js or route.js are publicly addressable. </p-notes>
+</p-slide>
+<p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
+  <h5>
+    NextJS provides a set of special files to create UI with specific behavior in nested routes
+    <span style="background: initial; -webkit-text-fill-color: initial">📢</span>
+  </h5>
+</p-slide><!--/slide:project-structure-->
+<!--slide:special-file--><p-slide timing="1000" autoplay="special-file">
+  <p-fragment timing-start="10" class="special-file" style="top: 3em; rotate: 329deg; left: 3em"> layout.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 4em; rotate: 341deg; left: 9em"> page.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 2em; right: 3em; rotate: 36deg"> loading.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 8em; right: 5em; rotate: 36deg"> not-found.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 2em; right: 8em; rotate: 36deg"> error.tsx </p-fragment>
+  <p-fragment class="special-file" style="left: 3em; rotate: 332deg; bottom: 3em"> global-error.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 10em; right: 10em; rotate: 337deg"> route.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 6em; right: 3em; rotate: 3deg"> template.tsx </p-fragment>
+  <p-fragment class="special-file" style="top: 11em; right: 4em; rotate: 36deg"> default.tsx </p-fragment>
+  <p-fragment no-autoplay style="z-index: 1"><img class="full-media" src="img/cry-sad.gif" alt="special-files-omg" style="height: 90%; top: 0.5em; bottom: 0.5em" /></p-fragment>
+</p-slide>
+<p-slide class="full-media-no-padding">
+  <div class="star-wars-intro">
+    <p class="intro-text">But first, a bit of history.</p>
+    <!-- All Scrolling Content Goes in here -->
+    <div class="main-content">
+      <div class="title-content">
+        <p class="content-header">NextJS<br />before server component</p>
+        <br />
+        <p class="content-body">
+          Before the introduction of server components, NextJS primarily relied on React components, which are client-side components rendered on the browser.
+          <br />
+          These components are part of the client-side rendering (CSR) approach where the entire page is initially rendered on the client side.
+          <br />
+          By default, NextJS uses CSR, where React components are rendered on the client's browser. When a user navigates to a page, NextJS sends the necessary JavaScript bundles
+          to the browser, which then executes React to render the page.
+        </p>
+      </div>
+    </div>
+  </div>
+</p-slide>
+<p-slide>
+  <p-note class="center">
+    <h4 style="margin-bottom: 0.7em">Server Components 🗄️</h4>
+    <p class="small-text">React Server Components allow you to write UI that can be rendered and optionally cached on the server.</p>
+  </p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">🙌 Some Benefit 🙌</h4>
+  <ul class="long-list">
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">Fetching:</span> Server Components allow you to move data fetching to the server, closer to your data source</li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Security:</span> Server Components allow you to keep sensitive data and logic on the server, such as tokens and API keys, without the risk
+        of exposing them to the client
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Performance:</span> Server Components allow you to cache the UI on the server, reducing the amount of work the client needs to do
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">SEO:</span> Server Components allow you to render the UI on the server, improving SEO and performance</li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Initial Page Load and First Contentful Paint (FCP):</span> On the server, we can generate HTML to allow users to view the page immediately,
+        without waiting for the client to download, parse and execute the JavaScript needed to render the page.
+      </li></p-fragment
+    >
+  </ul>
+  <p-notes>
+    Streaming: Server Components allow you to split the rendering work into chunks and stream them to the client as they become ready. This allows the user to see parts of the page
+    earlier without having to wait for the entire page to be rendered on the server.
+  </p-notes>
+  <p-notes>
+    Bundle Sizes: Server Components allow you to keep large dependencies that previously would impact the client JavaScript bundle size on the server. This is beneficial for users
+    with slower internet or less powerful devices, as the client does not have to download, parse and execute any JavaScript for Server Components.
+  </p-notes>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 1em" class="attention"> Important </p-note>
+  <p-note style="--default-more-space: 1.6em" class="small-text more-space"
+    ><span class="graphik-medium">By default, NextJS uses Server Components.</span> This allows you to automatically implement server rendering with no additional configuration,
+    and you can opt into using Client Components when needed.
+  </p-note>
+  <p-notes> To use Client Components, you must add 'use client' at the beginning of the file. </p-notes>
+</p-slide>
+<p-slide>
+  <p-note class="center">
+    <h4 style="margin-bottom: 0.7em">Client Components 🙂‍↔️</h4>
+    <p class="small-text">Client Components allow to write interactive UI that is prerendered on the server and can use client JavaScript to run in the browser</p>
+  </p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">🙌 Some Benefit 🙌</h4>
+  <ul class="long-list">
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Interactivity:</span> Client Components can use state, effects, and event listeners, meaning they can provide immediate feedback to the user
+        and update the UI
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">Browser APIs:</span> Client Components have access to browser APIs, like geolocation or localStorage</li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="client-component.tsx">
+ <code style="font-size: .8em" class="language-javascript"> 
+  'use client'
+  import { useState } from 'react'
+  
+  export default function Counter() {
+    const [count, setCount] = useState(0);
+    return (
+      &lt;div>
+        &lt;p>You clicked {count} times&lt;/p>
+        &lt;button onClick={() => setCount(count + 1)}>Click me&lt;/button>
+      &lt;/div>
+    )
+  }
+  </code></pre>
+  <p-fragment
+    style="--circle-sketch-height: 1.2em; position: absolute; inset-inline-start: 1.6em; z-index: 1; inset-block-end: 9.7em; width: 4em"
+    class="circle-sketch-highlight"></p-fragment>
+</p-slide>
+<p-slide style="--starting-point-gradient: #bbbaba" class="gradient-sub-section center">
+  <h5>Now we can explore the special file</h5>
+  <img src="img/letsgo.gif" alt="letsgo" class="alter-image-size" />
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>layout.tsx</h1>
+</p-slide>
+<p-slide>
+  <h6 style="margin-bottom: 0.6em">
+    A layout is UI that is shared between multiple routes. <br />On navigation, layouts preserve state, remain interactive, and do not re-render. Layouts can also be nested.
+  </h6>
+  <pre data-label-file="layout.tsx"><code class="language-javascript">
+    interface LayoutProps {
+      children: React.ReactNode
+    }
+    export default function DashboardLayout({children}: LayoutProps) {
+      return (
+        &lt;section>
+          {children}
+        &lt;/section>
+      )
+    }</code></pre>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">The Root layout</h5>
+    <p class="small-text"><span class="graphik-medium">The Root layout</span> is defined at the top level of the app directory and applies to all routes.</p>
+  </p-note>
+  <p-notes>
+    <p>This layout is required and must contain html and body tags, allowing you to modify the initial HTML returned from the server.</p>
+    <p>api SEO nextJS</p>
+    <p>server component by default and cannot turn in client component</p>
+  </p-notes>
+  <pre class="small-line" data-label-file="layout.tsx"><code class="small-text language-javascript">
+    interface RootLayoutProps {
+      children: React.ReactNode
+    }
+    export default function RootLayout({children}: RootLayoutProps) {
+      return (
+        &lt;html lang="en">
+          &lt;body>
+            {/* Layout UI */}
+            &lt;main>{children}&lt;/main>
+          &lt;/body>
+        &lt;/html>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
+  <h5>Multiple Root Layouts</h5>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">Multiple Root Layouts</h5>
+    <p class="small-text">To create multiple root layouts, remove the top-level layout.tsx file, and add a layout.tsx file inside each route groups.</p>
+  </p-note>
+  <p-notes>
+    This is useful for partitioning an application into sections that have a completely different UI or experience. The &lt;html> and &lt;body> tags need to be added to each root
+    layout.
+  </p-notes>
+  <p-fragment class="center"><img style="margin-top: 0.5em" class="alter-image-size" alt="multiple-root-layouts" src="img/route-group-multiple-root-layouts.avif" /></p-fragment>
+</p-slide>
+<p-slide style="--starting-point-gradient: rgb(121, 120, 120)" class="center gradient-sub-section">
+  <h5>Nesting Layouts</h5>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.7em">Nesting Layouts</h5>
+    <p class="small-text">
+      You can nest layouts to create a hierarchy of shared UI. When a route changes, the layout hierarchy is preserved, and only the necessary layouts are re-rendered.
+    </p>
+  </p-note>
+  <p-fragment class="center"><img style="margin-top: 0.5em" class="alter-image-size" alt="nesting-layouts" src="img/nested-layouts-ui.avif" /></p-fragment>
+</p-slide>
+<p-slide style="--starting-point-gradient: rgb(188 188 188)" class="center gradient-sub-section">
+  <h5>Layout: functions hooks</h5>
+</p-slide>
+<p-slide class="center">
+  <p-note>By default, layouts <u>do not have access</u> to the current segment, due to their nature as server components</p-note>
+  <p-fragment style="margin-top: 0.5em">(╥﹏╥)</p-fragment>
+</p-slide>
+<p-slide timing-fragment="450" class="center" autoplay="layout-hooks">
+  <p-note style="margin-bottom: 1em">NextJS comes with two hooks for retrieving information</p-note>
+  <p-note style="font-size: 0.8em" class="two-columns graphik-medium">
+    <p-fragment>useSelectedLayoutSegment</p-fragment>
+    <p-fragment>useSelectedLayoutSegment<b>s</b></p-fragment>
+  </p-note>
+  <p-fragment style="margin-top: 1em">😎👌🔥</p-fragment>
+  <p-fragment no-autoplay style="margin-top: 1em; font-style: italic">...but you can use only on client component...</p-fragment>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.2em">useSelectedLayoutSegment</h5>
+    <p style="margin-bottom: 0.7em" class="small-text">allows retrieval of the active route segment</p>
+  </p-note>
+  <pre class="small-line" data-label-file="client-component.tsx"><code class="small-text language-javascript">
+  'use client'
+  import { useSelectedLayoutSegment } from 'next/navigation'
+    
+  export default function ExampleClientComponent() {
+    //Example: if we are on &lt;root>/dashboard/user
+    //the retrieved value is the string 'user'."
+    const segment = useSelectedLayoutSegment()
+    return &lt;p>Active segment: {segment}&lt;/p>
+  }
+
+</code></pre>
+  <p-fragment
+    style="--circle-sketch-height: 1.2em; position: absolute; inset-inline-start: 4.1em; z-index: 1; inset-block-end: 5.1em; width: 5em"
+    class="circle-sketch-highlight"></p-fragment>
+</p-slide>
+<p-slide>
+  <p-note>
+    <h5 style="margin-bottom: 0.2em">useSelectedLayoutSegments</h5>
+    <p style="margin-bottom: 0.7em" class="small-text">allows retrieval of the active route segment and all those before it in an array of values</p>
+  </p-note>
+  <pre class="small-line" data-label-file="client-component.tsx"><code class="small-text language-javascript">    'use client'
+    import { useSelectedLayoutSegments } from 'next/navigation'
+      
+    export default function ExampleClientComponent() {
+      const segments = useSelectedLayoutSegments()
+      //Example: if we are on &lt;root>/dashboard/user, 
+      //the retrieved value is the array ['dashboard', 'user']."
+      return (
+        &lt;ul>
+          {segments.map((segment, index) => (
+            &lt;li key={index}>{segment}&lt;/li>
+          ))}
+          &lt;/ul>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 1em">
+    <h5>❗️All values are relative to where the hook is invoked.❗️</h5>
+  </p-note>
+  <img src="img/routing.png" alt="routing" class="alter-image-size" />
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>page.tsx</h1>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0.7em">🚪 The page file is the entry point for each route</h5>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+  // `app/page.tsx` is the UI for the `/` URL
+  export default function Page() {
+    return &lt;h1>Hello, Home page!&lt;/h1>
+  }
+
+</code></pre>
+  <p-notes>
+    The page file is the entry point for each route.<br />
+    Without it, it's not possible to render the requested route. Each page inherits the layouts and templates of that specific route.
+  </p-notes>
+</p-slide>
+<p-slide class="center">
+  <p-note>Every page is a server component by default</p-note>
+  <p-fragment style="margin-top: 1em">To become a client component you must add <span class="graphik-medium">'use client'</span> at the beginning of the file.</p-fragment>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    'use client'
+
+    // `app/page.tsx` is the UI for the `/` URL
+    export default function Page() {
+      return &lt;h1>Hello, from the client pageeeee!&lt;/h1>
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>loading.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 0.5em">The loading.tsx file is loaded by the framework when UI components are loaded and is nested within the layout. </p-note>
+  <p-note>⏳</p-note>
+</p-slide>
+<p-slide>
+  <p-note class="mid-dimension"> It encapsulates the <span class="graphik-medium">page.tsx</span> file and its respective children with the native React Suspense tag. </p-note>
+  <img class="alter-image-size" src="img/loading-overview.avif" alt="loading-overview" />
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="loading.tsx"><code class="language-javascript">
+    export default function Loading() {
+      // You can add any UI inside Loading
+      return 'Loading...'
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>not-found.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note>The not-found file serves to provide a courtesy page if a resource not present in the routing of our application is requested</p-note>
+  <p-note>🤷‍♂️</p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="not-found.tsx"><code class="language-javascript">
+    import Link from 'next/link'
+ 
+    export default function NotFound() {
+      return (
+        &lt;div>
+          &lt;h2>Not Found&lt;/h2>
+          &lt;p>Could not find requested resource&lt;/p>
+          &lt;Link href="/">Return Home&lt;/Link>
+        &lt/div>
+      )
+    }</code></pre>
+</p-slide>
+<p-slide class="center">
+  <p-note style="margin-bottom: 1em" class="attention"> Important </p-note>
+  <p-note>The not-found file does not accept any type of props</p-note>
+</p-slide>
+<p-slide class="center">
+  <p-note>🫵 Good to know 🫵</p-note>
+  <p-fragment class="mid-dimension">
+    In addition to catching expected notFound() errors, the root app/not-found.tsx file also handles any unmatched URLs for your whole application.</p-fragment
+  >
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>error.tsx / global-error.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension">The error file allows rendering a courtesy page to handle any type of error that may occur during the rendering of a component.</p-note>
+  <p-note>🚨</p-note>
+</p-slide>
+<p-slide>
+  <p-note class="mid-dimension">The framework uses React ErrorBoundary to catch the error, encapsulating the page file inside it.</p-note>
+  <img class="alter-image-size" src="img/error-overview.avif" alt="loading-overview" />
+</p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension"> Through the reset prop, it's possible to request the framework to attempt to reload the component, triggering a new render of it.</p-note>
+  <p-fragment class="mid-dimension">
+    It's important to remember that a component's error bubbles up through all parent routes until it finds an error component that intercepts them."
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="error.tsx"><code class="mid-dimension language-javascript">    'use client' //<- Error components must be Client Components
+    export default function Error({ error, reset}: {
+      error: Error & { digest?: string }
+      reset: () => void
+    }) {
+      return (
+        &lt;div>
+          &lt;h2>Something went wrong!&lt;/h2>
+          &lt;button onClick={() => reset()}>Try again&lt;/button>
+        &lt;/div>
+      )
+    }</code></pre>
+  <p-fragment
+    style="--circle-sketch-height: 1.2em; position: absolute; inset-inline-start: 7.4em; z-index: 1; inset-block-end: 4.4em; width: 4em"
+    class="circle-sketch-highlight"></p-fragment>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>route.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension">Route Handlers allow you to create custom request handlers for a given route using the Web Request and Response APIs.</p-note>
+  <p-note>🚀</p-note></p-slide
+>
+<p-slide>
+  <h5 style="margin-bottom: 0.7em">Supported HTTP Methods</h5>
+  <p-note class="mid-dimension">The following HTTP methods are supported: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.</p-note>
+  <p-fragment class="center attention" style="margin-bottom: 0.5em">Important</p-fragment>
+  <p-fragment class="mid-dimension">If an unsupported method is called, NextJS will return a 405 Method Not Allowed response.</p-fragment>
+</p-slide>
+<p-slide class="center two-columns-divided-vertically" style="gap: 1em">
+  <p-fragment class="small-text">👇 In this example, a route with the path &lt;root>/api will be generated</p-fragment>
+  <img src="img/route-special-file.avif" style="--image-width-size: 20em; --image-start-size: auto" alt="route-special-file" class="alter-image-size" />
+  <p-note class="small-text">By convention, they are placed inside the api folder and can be positioned within any segment of the routing</p-note>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="route.tsx"><code class="language-javascript">
+    export async function GET() {
+      const res = await fetch('https://data.mongodb-api.com/...', {
+        headers: {
+          'Content-Type': 'application/json',
+          'API-Key': process.env.DATA_API_KEY,
+        },
+      })
+      const data = await res.json()
+     
+      return Response.json({ data })
+    }</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.7em">🌟 Some tips 🌟</h4>
+  <ul class="mid-dimension">
+    <p-fragment><li>📌 Route Handlers are cached by default when using the GET method with the Response object.</li></p-fragment>
+    <p-fragment><li>📌 Route do not participate in layouts or client-side navigations like page</li></p-fragment>
+    <p-fragment><li>📌 Route cannot be a route.tsx file at the same route as page.tsx.</li></p-fragment>
+  </ul>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>template.tsx</h1>
+</p-slide>
+<p-slide class="center">
+  <p-note> A template is similar to a layout.</p-note>
+  <p-fragment>
+    <p style="margin-top: 1em">Unlike layouts that persist across routes and maintain state, templates create a new instance for each of their children on navigation.</p>
+    <p>🖼️</p>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="template.tsx"><code class="language-javascript">
+    export default function Template({ children } {
+      return &lt;div>{children}&lt;/div>
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="center">
+  <h4>Why should I choose templates instead of layouts? 🤔</h4>
+</p-slide>
+<p-slide>
+  <ul class="mid-dimension">
+    <li>📌 Features that rely on useEffect (e.g logging page views) and useState (e.g a per-page feedback form).</li>
+    <p-fragment><li>📌 Components that need to be re-rendered on navigation.</li></p-fragment>
+    <p-fragment
+      ><li>
+        📌 To change the default framework behavior. <br />
+        For example, Suspense Boundaries inside layouts only show the fallback the first time the Layout is loaded and not when switching pages. For templates, the fallback is
+        shown on each navigation.
+      </li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>default.tsx</h1>
+</p-slide>
+<p-slide class="center more-space">
+  The default file is used to render a fallback within Parallel Routes when NextJS cannot recover a slot's active state after a full-page load.
+</p-slide>
+<p-slide class="center more-space"> But wait... what is Parallel Route? 🤔 </p-slide>
+<p-slide class="center more-space">
+  Parallel Routes allows you to simultaneously or conditionally render one or more pages within the same layout.
+  <p class="center" style="margin-top: 0.5em; font-size: 2em">🚴 🚴</p>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">⚙️ How to activate ⚙️</h4>
+  <img style="--image-start-size: 10em" src="img/parallel-routes.avif" alt="parallel-routes" class="alter-image-size" />
+  <p-notes> For example, considering a dashboard, you can use parallel routes to simultaneously render the team and analytics pages </p-notes>
+  <p-notes
+    >Parallel routes are created using named slots. Slots are defined with the @folder convention. For example, the following file structure defines two slots: @analytics and
+    @team</p-notes
+  >
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="layout.tsx"><code class="language-javascript">
+    export default function Layout({ children, team, analytics}) {
+      return (
+        &lt;>
+          {children}</code>
+          <p-fragment><code style="padding: 0; font-weight: bold;" class="language-javascript">{team}</code></p-fragment>
+          <p-fragment><code style="padding: 0; font-weight: bold;" class="language-javascript">{analytics}</code></p-fragment><code class="language-javascript">
+        &lt;/>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide class="center"> So this sounds great, but what about the default.tsx file? 🤔 </p-slide>
+<p-slide class="center">
+  <p-note class="mid-dimension"
+    >As we said, the default.tsx file is used to render a fallback within Parallel Routes when NextJS cannot recover a slot's active state after a full-page load.</p-note
+  >
+  <p-note>🤷‍♂️</p-note>
+  <p-notes>
+    This file is optional and can be used to render a fallback UI when the active state of a slot cannot be recovered after a full-page load. It is also used to render a fallback
+    UI when the slot is not defined in the layout.
+  </p-notes>
+  <p-notes> full page load: when user reload the page </p-notes>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="default.tsx"><code class="language-javascript">
+    import Page, { PageProps } from './page'
+
+    export default async function Default(props: PageProps) {
+      return (
+        &lt;Page {...props} />
+      )
+    }
+  </code></pre>
+</p-slide><!--/slide:special-file-->
+<!--slide:function--><p-slide class="cover">
+  <h1>Functions and Api</h1>
+</p-slide>
+<p-slide class="center">
+  <h5>Next.js has a range of framework functions and APIs that are truly useful during the development of our application.</h5>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em">useParams</h4>
+  <pre data-label-file="component.tsx"><code class="language-javascript">
+    'use client' 
+    import { useParams } from 'next/navigation'
+     
+    export default function ExampleClientComponent() {
+      const params = useParams<{ tag: string; item: string }>()  
+
+      // Route -> /shop/[tag]/[item]
+      // URL -> /shop/shoes/nike-air-max-97
+      // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
+      console.log(params)
+    }</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em">useSearchParams</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    'use client'
+    import { useSearchParams } from 'next/navigation'
+     
+    export default function SearchBar() {
+      const searchParams = useSearchParams()
+      const search = searchParams.get('search')
+     
+      // URL -> `/dashboard?search=my-project`
+      // `search` -> 'my-project'
+      return &lt;>Search: {search}&lt;/>
+    }</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em">useRouter</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    'use client' 
+    import { useRouter } from 'next/navigation'
+ 
+    export default function Page() {
+      const router = useRouter()     
+      return (
+        &lt;button type="button" onClick={() => router.push('/dashboard')}>
+          Dashboard
+        &lt;/button>
+      )
+    }</code></pre>
+</p-slide><!--/slide:function-->
+<!--slide:optimizing--><p-slide class="cover">
+  <h1>Optimizing</h1>
+</p-slide>
+<p-slide class="center mid-dimension">
+  <p>NextJS comes with a variety of built-in optimizations designed to improve your application's <b>speed and Core Web Vitals.</b></p>
+  <span style="font-size: 2em">🏎️💨</span>
+  <p-notes
+    >The strength of NextJS, compared to other frameworks, lies precisely in its strongly performance-oriented web development and SEO, making it decidedly one of the best choices
+    in web ranking</p-notes
+  >
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Built-in Component</h1>
+</p-slide>
+<p-slide>
+  <h6 style="margin-bottom: 0.7em">Built-in components abstract away the complexity of implementing common UI optimizations. These components are</h6>
+  <ul style="--li-margin-bottom: 1em; margin-top: 0.5em" class="long-list">
+    <p-fragment
+      ><li>
+        🖼 <span class="graphik-medium">Image</span>: Built on the native &lt;img /> element. The Image Component optimizes images for performance by lazy loading and automatically
+        resizing images based on device size
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        🌐 <span class="graphik-medium">Link</span>: Built on the native &lt;a> tags. The Link Component prefetches pages in the background, for faster and smoother page
+        transitions.
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>
+        📝 <span class="graphik-medium">Script</span>: Built on the native &lt;script> tags. The Script Component gives you control over loading and execution of third-party
+        scripts
+      </li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="component.tsx"><code class="mid-dimension language-javascript">
+    import Image from 'next/image'
+    import profilePic from './me.png'
+     
+    export default function Page() {
+      return (
+        &lt;Image
+          src={profilePic}
+          alt="Picture of the author"
+        />
+      )
+    }</code></pre>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Metadata</h1>
+</p-slide>
+<p-slide>
+  <h5 class="mid-dimension">The Metadata API in Next.js allows you to modify the <b>&lt;head></b> element of a page. You can configure metadata in two ways:</h5>
+
+  <ul style="--li-margin-bottom: 1em; margin-top: 0.5em" class="long-list">
+    <p-fragment
+      ><li>
+        📌 <span class="graphik-medium">Config-based Metadata:</span> Export a static metadata object or a dynamic generateMetadata function in a layout.tsx or page.tsx file.
+      </li></p-fragment
+    >
+    <p-fragment
+      ><li>📌 <span class="graphik-medium">File-based Metadata:</span> Add static or dynamically generated special files to route segments.</li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Static metadata 🗿</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+  import type { Metadata } from 'next'
+
+  export const metadata: Metadata = {
+    title: '...',
+    description: '...',
+  }
+  
+  export default function Page() {}
+</code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Dynamic metadata 🏃🏻‍♀️</h4>
+  <pre class="small-line" data-label-file="page.tsx"><code class="small-text language-javascript">    import type { Metadata, ResolvingMetadata } from 'next'
+    //....
+    export async function generateMetadata(
+      { params, searchParams }: Props,
+      parent: ResolvingMetadata
+    ): Promise&lt;Metadata> {
+      const id = params.id // read route params
+      const product = await fetch(`https://.../${id}`).then((res) => res.json())
+     
+      return {
+        title: product.title,
+      }
+    }
+    export default function Page({ params, searchParams }: Props) {}</code></pre>
+</p-slide>
+<p-slide>
+  <p-note class="center" style="margin-bottom: 0.4em">🫵 Good to know 🫵</p-note>
+  <ul style="--li-margin-bottom: 1em" class="long-list">
+    <p-fragment><li>📌 Both static and dynamic metadata through generateMetadata are only supported in Server Components.</li></p-fragment>
+    <p-fragment><li>📌 Fetch requests are automatically memoized for the same data across generateMetadata</li></p-fragment>
+    <p-fragment
+      ><li>
+        📌 NextJS will wait for data fetching inside generateMetadata to complete before streaming UI to the client. This guarantees the first part of a streamed response includes
+        &lt;head> tags.
+      </li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Lazy Loading</h1>
+</p-slide>
+<p-slide class="center">
+  Lazy loading helps improve the initial loading performance by decreasing the amount of JavaScript needed to render a route.
+  <span style="margin-top: 0.3em">🥱</span>
+</p-slide>
+<p-slide class="center">
+  <h5>There are two ways you can implement lazy loading in NextJS</h5>
+  <p-note style="font-size: 0.8em; text-align: start" class="graphik-medium">
+    <p-fragment
+      ><p>👉 Using Dynamic Imports with <code>next/dynamic</code></p></p-fragment
+    >
+    <p-fragment
+      ><p>👉 Using <code>React.lazy()</code> with Suspense</p></p-fragment
+    >
+  </p-note>
+  <p-notes> next/dynamic is a composite of React.lazy() and Suspense. It behaves the same way in the app and pages directories to allow for incremental migration </p-notes>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="home.tsx"><code class="language-javascript">
+    import dynamic from 'next/dynamic'
+ 
+    const DynamicHeader = dynamic(() => import('../components/header'), {
+      loading: () => <p>Loading...</p>,
+    })
+     
+    export default function Home() {
+      return &lt;DynamicHeader />
+    }
+  </code></pre>
+</p-slide><!--/slide:optimizing-->
+<!--slide:testing--><p-slide class="cover">
+  <h1>Testing</h1>
+</p-slide>
+<p-slide>
+  <img class="full-media" src="img/cry-sad.gif" alt="special-files-omg" style="height: 90%; top: 0.5em; bottom: 0.5em" />
+</p-slide>
+<p-slide class="cover-subSection center">
+  <h1>But...With Cypress</h1>
+  <p-fragment><span>٩(^ᗜ^ )و ´-</span></p-fragment>
+  <p-notes>You can use a lot of tool like Vitest Jest Playwright Cypress</p-notes>
+</p-slide>
+<p-slide>
+  <h5 style="margin-bottom: 0">Configuration</h5>
+  <h6 style="margin-bottom: 0; margin-top: 1em">Quick setup</h6>
+  <pre><code class="mid-dimension language-bash">npx create-next-app@latest --example with-cypress with-cypress-app</code></pre>
+  <p-fragment
+    ><h6 style="margin-bottom: 0; margin-top: 1em">Manual setup</h6>
+    <pre><code class="mid-dimension language-bash">npm install -D cypress
+# or
+yarn add -D cypress
+# or
+pnpm install -D cypress</code></pre>
+  </p-fragment>
+</p-slide>
+<p-slide class="cover-subSection"><h1>Just a little example</h1> </p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Component code 👨‍💻</h4>
+  <pre data-label-file="page.tsx"><code class="language-javascript">
+    import Link from 'next/link'
+ 
+    export default function Page() {
+      return (
+        &lt;div>
+          &lt;h1>About&lt;/h1>
+          &lt;Link href="/">Home&lt;/Link>
+        &lt;/div>
+      )
+    }
+  </code></pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Component test code 👨‍💻</h4>
+  <pre data-label-file="about.cy.tsx"><code class="language-javascript">
+    import Page from '../../app/page'
+
+    describe('&lt;Page />', () => {
+      it('should render and display expected content', () => {
+        cy.mount(&lt;Page />)
+     
+        cy.get('h1').contains('About')
+
+        cy.get('a[href="/"]').should('be.visible')
+      })
+    })</code></pre>
+</p-slide><!--/slide:testing-->
+<!--slide:outro--><p-slide class="cover">
+  <h1>Useful Tool</h1>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>SWR</h1>
+</p-slide>
+<p-slide>
+  <h5 class="mid-dimension">The team behind NextJS has created a React hook library for data fetching called SWR.</h5>
+  <ul class="long-list">
+    <p-fragment><li>📌 Fast, lightweight and reusable data fetching</li></p-fragment>
+    <p-fragment><li>📌 Built-in cache and request deduplication</li></p-fragment>
+    <p-fragment><li>📌 Real-time experience</li></p-fragment>
+    <p-fragment><li>📌 Transport and protocol agnostic</li></p-fragment>
+    <p-fragment><li>📌 SSR / ISR / SSG support</li></p-fragment>
+    <p-fragment><li>📌 TypeScript ready</li></p-fragment>
+  </ul>
+  <p-notes
+    >The team behind Next.js has created a React hook library for data fetching called SWR. It is highly recommended if you are fetching data on the client-side. It handles
+    caching, revalidation, focus tracking, refetching on intervals, and more.</p-notes
+  >
+</p-slide>
+<p-slide>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="client-component.tsx"><code class="small-text language-javascript">    import useSWR from 'swr'
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    
+    function Profile() {
+      const { data, error } = useSWR('/api/profile-data', fetcher)
+      if (error) return &lt;div>Failed to load&lt;/div>
+      if (!data) return &lt;div>Loading...&lt;/div>
+      return (
+        &lt;div>
+          &lt;h1>{data.name}&lt;/h1>
+          &lt;p>{data.bio}&lt;/p>
+        &lt;/div>
+      )}</code></pre>
+  <p-notes>
+    Using the same example as above, we can now use SWR to fetch the profile data. SWR will automatically cache the data for us and will revalidate the data if it becomes stale.
+  </p-notes>
+</p-slide>
+<p-slide autoplay="swr" class="center">
+  <h5>👇 Follow this link for more information and options! 👇</h5>
+  <p-fragment timing-start="500"><p style="font-size: 0.73em">https://swr.vercel.app/</p></p-fragment>
+</p-slide>
+<p-slide class="cover-subSection">
+  <h1>Zustand</h1>
+</p-slide>
+<p-slide class="cover blockquote">
+  <blockquote>
+    <p>A small, fast and scalable bearbones state-management solution using simplified flux principles. Has a comfy API based on hooks, isn't boilerplatey or opinionated.</p>
+    <cite><a href="https://github.com/pmndrs/zustand">https://github.com/pmndrs/zustand</a></cite>
+  </blockquote>
+</p-slide>
+<p-slide class="two-columns">
+  <p-note>
+    <h5 style="margin-bottom: 1em">Why zustand over context?</h5>
+    <ul class="long-list">
+      <p-fragment><li>📌 Less boilerplate</li></p-fragment>
+      <p-fragment><li>📌 Renders components only on changes</li></p-fragment>
+      <p-fragment><li>📌 Centralized, action-based state management</li></p-fragment>
+    </ul>
+  </p-note>
+  <p-fragment><img class="alter-image-size" alt="zustand-bear" src="img/zustand_bear.png" /></p-fragment>
+</p-slide>
+<p-slide follow-fragments>
+  <h4 style="margin-bottom: 0.5em" class="center">Some code 👨‍💻</h4>
+  <pre data-label-file="zustand.tsx"><code class="language-javascript">
+    import { create } from 'zustand'
+  </code>
+    <p-fragment><code class="language-javascript">type Store = {
+      count: number
+      inc: () => void
+    }
+  </code></p-fragment>
+    <p-fragment><code class="language-javascript">const useStore = create&lt;Store>()((set) => ({
+      count: 1,
+      inc: () => set((state) => ({ count: state.count + 1 })),
+    }))</code></p-fragment>
+    <p-fragment><code class="language-javascript">
+    function Counter() {
+      const { count, inc } = useStore()
+      return (
+        &lt;div>
+          &lt;span>{count}&lt;/span>
+          &lt;button onClick={inc}>one up&lt;/button>
+        &lt;/div>
+      )
+    }
+  </code></p-fragment></pre>
+</p-slide><!--/slide:outro-->
+<!--slide:thanks--><p-slide>
+  <img alt="thatsall" src="img/thatsall.gif" style="--image-start-size: 100%" class="alter-image-size" />
+</p-slide>
+<p-slide class="center">
+  <h2 style="margin-bottom: 0.3em">You can find this slide on</h2>
+  <p-note style="margin-bottom: 0.5em">
+    <img src="img/qrcode_marcopollacci.github.io.png" alt="qrcode" class="alter-image-size" />
+  </p-note>
+  <p-note><a href="https://marcopollacci.github.io/nextjs-for-beginner/gellify">https://marcopollacci.github.io/nextjs-for-beginner/gellify</a></p-note>
+</p-slide>
+<p-slide blob-slide class="two-columns">
+  <gfy-blob
+    clearcoatroughness="0.4"
+    clearcoat="0.25"
+    color="#2a0b29"
+    envmap="img/envmap.jpg"
+    envmapintensity="0.95"
+    fixnormals=""
+    frequency="0.01"
+    metalness="0.64"
+    numberofwaves="1.47"
+    reflectivity="1"
+    roughness="0"
+    surfacepoleamount="1"
+    surfacedistort="3.2"
+    surfacefrequency="0.97"
+    surfacespeed="0.8">
+    <gfy-spotlight color="#c556c6" intensity="2.68" distance="14.47" angle="0.85" penumbra="0.45" decay="0.24" x="-4.47" y="2.4" z="0.53"></gfy-spotlight>
+    <gfy-spotlight color="#30ffe2" intensity="2.08" distance="8.73" angle="0.63" penumbra="1" decay="0" x="-1.6" y="-5.33" z="3.67"></gfy-spotlight>
+    <gfy-spotlight color="#ffffff" intensity="2.03" distance="0" angle="0.35" penumbra="1" decay="1" x="6.13" y="2.67" z="2.13"></gfy-spotlight>
+    <gfy-spotlight color="#ff4cfa" intensity="1.25" distance="7" angle="0.82" penumbra="1" decay="0.5" x="0.53" y="2.4" z="3.4"></gfy-spotlight>
+    <gfy-spotlight color="#ffffff" intensity="0.63" distance="7" angle="0.79" penumbra="1" decay="0.5" x="-3" y="-3" z="6.2"></gfy-spotlight>
+  </gfy-blob>
+  <p-note class="text-cover my-data my-presentation">
+    <h5 class="text-cover">Thank you again!</h5>
+    <img src="img/me.jpg" class="my-face" alt="me" />
+    <span>Marco Pollacci</span>
+    <span>Senior Software Developer @GELLIFY</span>
+    <div></div>
+  </p-note>
+  <img style="--image-start-size: 9em" class="alter-image-size" src="img/qr_link.svg" alt="qr" />
+</p-slide>
+<script defer type="module" src="https://cdn-pollacci.pages.dev/blob.js"></script><!--/slide:thanks-->
+</p-deck>
+    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="presentation-progress" role="progressbar" title="Presentation progress"></div>
+    <div class="presentation-toolbar" role="toolbar">
+      <button aria-label="Toggle speaker mode (Alt-M)" class="toggle-mode" title="Toggle speaker mode" type="button">
+        <svg viewBox="0 0 1 1">
+          <path d="M.05 .5h.6v-.45h-.6v.9h.6v-.45M.75 .05h.25M.75 .2h.25M.75 .35h.25" fill="none" stroke="currentColor" stroke-width="0.1" />
+        </svg>
+      </button>
+      <button aria-label="Toggle fullscreen mode" class="fullscreen" title="Toggle fullscreen mode" type="button">
+        <svg viewBox="0 0 1 1">
+          <g fill="none" stroke="currentColor" stroke-width="0.1">
+            <path d="M.05 .3v-.25h.25M.7 .05h.25v.25M.95 .7v.25h-.25M.3 .95h-.25v-.25" />
+            <path d="M.05 .3h.25v-.25M.7 .05v.25h.25M.95 .7h-.25v.25M.3 .95v-.25h-.25" />
+          </g>
+        </svg>
+      </button>
+    </div>
+    <nav class="presentation-nav">
+      <button aria-label="Go backward" class="previous" title="Go backward" type="button"></button>
+      <button aria-label="Go forward" class="next" title="Go forward" type="button"></button>
+    </nav>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/presentation.js" type="module"></script>
+    <script src="js/deck.js" type="module"></script>
+    <script defer src="vendor/prismjs/prism.js"></script>
+    <script defer src="vendor/prismjs/components/prism-typescript.js"></script>
+    <script defer src="vendor/prismjs/components/prism-scss.js"></script>
+  </body>
+</html>
